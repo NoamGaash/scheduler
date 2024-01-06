@@ -3,6 +3,8 @@
 This repository suggest an implementation that I made for self-learning purposes.
 It's not an official implementation of this paper.
 
+It's not finished - it's a work in progress
+
 ## Credit
 
 Yoav Ben-Yehoshua, Gur Mosheiov,
