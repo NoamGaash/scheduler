@@ -45,9 +45,11 @@ int main() {
 
     d.sort_by_descending_due_to();
     d.display();
+    cout << "Cost: " << d.cost(d.jobs) << endl;
 
     d.jobs = badSolution(d, d.jobs.size());
     d.display();
+    cout << "Cost: " << d.cost(d.jobs) << endl;
 
     return 0;
 }

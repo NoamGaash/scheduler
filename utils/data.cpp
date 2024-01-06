@@ -49,4 +49,13 @@ class Data {
                 return a.due_to > b.due_to;
             });
         }
+
+        int cost(const std::vector<Job>& solution) const {
+            int cost = 0, time = 0;
+            for(const auto& job : solution) {
+                cost += job.cost(time);
+                time += job.processing_time;
+            }
+            return cost;
+        }
 };
