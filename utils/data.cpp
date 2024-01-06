@@ -6,16 +6,22 @@ using namespace std;
 
 class Job {
     public:
+        int id;
         int processing_time;
         int due_to;
 
-        Job(int processing_time, int due_to) {
+        Job(int id, int processing_time, int due_to) {
+            this->id = id;
             this->processing_time = processing_time;
             this->due_to = due_to;
         }
 
         void display() const {
-            std::cout << "(p=" << processing_time << ", d=" << due_to << ")";
+            std::cout << "(id=" << id << " p=" << processing_time << ", d=" << due_to << ")";
+        }
+
+        int cost(int start) const {
+            return min(processing_time, max(0, due_to - start));
         }
 };
 
@@ -25,7 +31,7 @@ class Data {
 
         Data(std::vector<std::vector<int>> data) {
             for (const auto& row : data) {
-                jobs.push_back(Job(row[1], row[2]));
+                jobs.push_back(Job(row[0], row[1], row[2]));
             }
         }
 
