@@ -2,6 +2,7 @@
 #include "utils/data.cpp"
 # include <vector>
 # include <numeric>
+#include <functional>
 
 using namespace std;
 
@@ -10,6 +11,13 @@ vector<Job> operator+(const vector<Job>& a, const Job& b) {
     vector<Job> c = a;
     c.push_back(b);
     return c;
+}
+
+void time_measure(const std::function<void()>& f) {
+    clock_t start = clock();
+    f();
+    clock_t end = clock();
+    cout << "Time: " << (double)(end - start) / CLOCKS_PER_SEC * 1000  << "ms" << endl;
 }
 
 vector<Job> badSolution(Data& d, int j, vector<Job> start = {}, vector<Job> end = {}) {
@@ -39,17 +47,24 @@ vector<Job> badSolution(Data& d, int j, vector<Job> start = {}, vector<Job> end 
     return solution1_cost > solution2_cost ? solution2 : solution1;
 }
 
-int main() {
+void process_example_file() {
     string filename = "input.csv";
     Data d(readCSV(filename));
 
     d.sort_by_descending_due_to();
-    d.display();
-    cout << "Cost: " << d.cost(d.jobs) << endl;
+    // d.display();
+    cout << "Cost before algo: " << d.cost(d.jobs) << endl;
 
-    d.jobs = badSolution(d, d.jobs.size());
-    d.display();
-    cout << "Cost: " << d.cost(d.jobs) << endl;
+    time_measure([&d]() {
+        d.jobs = badSolution(d, d.jobs.size());
+    });
+
+    // d.display();
+    cout << "Cost after algo: " << d.cost(d.jobs) << endl;
+}
+
+int main() {
+    process_example_file();
 
     return 0;
 }
