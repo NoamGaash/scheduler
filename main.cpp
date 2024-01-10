@@ -47,6 +47,28 @@ vector<Job> badSolution(Data& d, int j, vector<Job> start = {}, vector<Job> end 
     return solution1_cost > solution2_cost ? solution2 : solution1;
 }
 
+
+int dp_solution(Data& d) {
+    int n = d.jobs.size();
+    int P = 0;
+    for(const auto& job : d.jobs) {
+        P += job.processing_time;
+    }
+
+    // initialize dp table
+    int** dp = new int*[n+1];
+    for(int i = 0; i <= n; i++) {
+        dp[i] = new int[P+1];
+        for(int j = 0; j <= P; j++) {
+            dp[i][j] = 0;
+        }
+    }
+
+    // fill dp table - TODO
+
+    return dp[n][P];
+}
+
 void process_example_file() {
     string filename = "input.csv";
     Data d(readCSV(filename));
@@ -57,6 +79,26 @@ void process_example_file() {
 
     time_measure([&d]() {
         d.jobs = badSolution(d, d.jobs.size());
+        // dp_solution(d);
+    });
+
+    // d.display();
+    cout << "Cost after algo: " << d.cost(d.jobs) << endl;
+}
+
+void process_generated_data() {
+    int njobs = 7;
+    int p_max = 10;
+    float alpha = 1;
+    Data d(njobs, p_max, alpha);
+
+    d.sort_by_descending_due_to();
+    // d.display();
+    cout << "Cost before algo: " << d.cost(d.jobs) << endl;
+
+    time_measure([&d]() {
+        d.jobs = badSolution(d, d.jobs.size());
+        // dp_solution(d);
     });
 
     // d.display();
@@ -65,6 +107,7 @@ void process_example_file() {
 
 int main() {
     process_example_file();
+    process_generated_data();
 
     return 0;
 }

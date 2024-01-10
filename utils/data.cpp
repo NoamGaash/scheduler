@@ -35,6 +35,19 @@ class Data {
             }
         }
 
+        Data(int njobs, int p_max, float alpha) {
+            int* p = new int[njobs];
+            int P = 0;
+            for(int i = 0; i < njobs; i++) {
+                p[i] = rand() % p_max + 1;
+                P += p[i];
+            }
+            for (int i = 0; i < njobs; i++) {
+                int d = rand() % (int)(alpha * P) + 1;
+                jobs.push_back(Job(i+1, p[i], d));
+            }
+        }
+
         void display() const {
             std::cout << "Jobs: ";
             for (const auto& job : jobs) {
