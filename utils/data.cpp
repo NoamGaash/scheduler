@@ -50,12 +50,7 @@ class Data {
         }
 
         void display() const {
-            std::cout << "Jobs: ";
-            for (const auto& job : jobs) {
-                job.display();
-                std::cout << " ";
-            }
-            std::cout << std::endl;
+            std::cout << this;
         }
 
         void sort_by_descending_due_to() {
@@ -72,4 +67,14 @@ class Data {
             }
             return cost;
         }
+    // cout
+    friend ostream& operator<<(ostream& os, const Data& d) {
+        os << "Jobs: ";
+        for (const auto& job : d.jobs) {
+            job.display();
+            os << " ";
+        }
+        os << endl;
+        return os;
+    }
 };
