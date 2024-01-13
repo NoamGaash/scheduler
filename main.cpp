@@ -25,9 +25,29 @@ int dp_solution(Data& d) {
         }
     }
 
-    // fill dp table - TODO
+    for(int j=n-2; j>=0; j--) {
+        for(int l=P; l>=0; l--) {
+            if(d.jobs[j+1].due_to >= P - l) {
+                dp[j][l] = d.jobs[j+1].processing_time + dp[j+1][l];
+            } else {
+                dp[j][l] = min(
+                    d.jobs[j+1].processing_time + dp[j+1][l],
+                    dp[j+1][l+d.jobs[j+1].processing_time] + min(
+                        d.jobs[j+1].processing_time,
+                        max(0, d.jobs[j+1].due_to - (P - l - d.jobs[j+1].processing_time))
+                    )
+                );
+            }
+        }
+    }
 
-    return dp[n][P];
+    const auto result = dp[0][0];
+    for(int i = 0; i <= n; i++) {
+        delete[] dp[i];
+    }
+    delete[] dp;
+
+    return result;
 }
 
 void process_example_file() {
@@ -36,12 +56,14 @@ void process_example_file() {
 
     d.sort_by_descending_due_to();
     cout << "Cost before algo: " << d.cost(d.jobs) << endl;
-
-    time_measure([&d]() {
-        d.jobs = naive_solution(d, d.jobs.size());
+    double result = 0;
+    double time = time_measure([&d, &result]() {
+        // d.jobs = naive_solution(d, d.jobs.size());
+        result = dp_solution(d);
     });
 
-    cout << "Cost after algo: " << d.cost(d.jobs) << endl;
+    cout << "Time: " << time << endl;
+    cout << "Cost after algo: " << result << endl;
 }
 
 void process_generated_data() {
