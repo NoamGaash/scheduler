@@ -81,8 +81,8 @@ void process_example_file()
     string filename = "input.csv";
     Data d(readCSV(filename));
 
-    d.sort_by_descending_due_to();
     cout << "Cost before algo: " << d.cost(d.jobs) << endl;
+    d.sort_by_descending_due_to();
     double result = 0;
     double time = time_measure([&d, &result]()
                                {
@@ -102,11 +102,11 @@ void process_generated_data()
     Data d(njobs, p_max, alpha);
     int result = 0;
 
-    d.sort_by_descending_due_to();
     cout << "Cost before algo: " << d.cost(d.jobs) << endl;
+    d.sort_by_descending_due_to();
 
     double time = time_measure([&d, &result]()
-                 {
+                               {
                     // d.jobs = naive_solution(d, d.jobs.size());
                     result = dp_solution(d); });
 
@@ -116,7 +116,7 @@ void process_generated_data()
 
 int main()
 {
-    srand ( time(NULL) );
+    srand(time(NULL));
     process_example_file();
     process_generated_data();
 
