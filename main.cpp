@@ -91,29 +91,34 @@ void process_example_file()
 
     cout << "Time: " << time << endl;
     cout << "Cost after algo: " << result << endl;
-    cout << d << endl;
+    // cout << d << endl;
 }
 
 void process_generated_data()
 {
-    int njobs = 7;
-    int p_max = 10;
+    int njobs = 200;
+    int p_max = 100;
     float alpha = 1;
     Data d(njobs, p_max, alpha);
+    int result = 0;
 
     d.sort_by_descending_due_to();
     cout << "Cost before algo: " << d.cost(d.jobs) << endl;
 
-    time_measure([&d]()
-                 { d.jobs = naive_solution(d, d.jobs.size()); });
+    double time = time_measure([&d, &result]()
+                 {
+                    // d.jobs = naive_solution(d, d.jobs.size());
+                    result = dp_solution(d); });
 
-    cout << "Cost after algo: " << d.cost(d.jobs) << endl;
+    cout << "Time: " << time << endl;
+    cout << "Cost after algo: " << result << endl;
 }
 
 int main()
 {
+    srand ( time(NULL) );
     process_example_file();
-    // process_generated_data();
+    process_generated_data();
 
     return 0;
 }
