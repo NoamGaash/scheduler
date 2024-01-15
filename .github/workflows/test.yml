@@ -1,0 +1,11 @@
+name: test performance on github actions
+on: [push]
+
+jobs:
+    test:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v2
+            - run: g++ main.cpp -o main
+            - run: ./main
+
