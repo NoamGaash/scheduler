@@ -9,43 +9,55 @@
 
 using namespace std;
 
-int dp_solution(Data& d) {
-    int n = d.jobs.size();
+int dp_solution(Data& data) {
+    int n = data.jobs.size();
     int P = 0;
-    for(const auto& job : d.jobs) {
+    for(const auto& job : data.jobs) {
         P += job.processing_time;
     }
 
     // initialize dp table
-    int** dp = new int*[n+1];
+    int** f = new int*[n+1];
     for(int i = 0; i <= n; i++) {
-        dp[i] = new int[P+1];
+        f[i] = new int[P+1];
         for(int j = 0; j <= P; j++) {
-            dp[i][j] = 0;
+            f[i][j] = 0;
         }
     }
 
-    for(int j=n-2; j>=0; j--) {
+    for(int j=n-2; j>=-1; j--) {
         for(int l=P; l>=0; l--) {
-            if(d.jobs[j+1].due_to >= P - l) {
-                dp[j][l] = d.jobs[j+1].processing_time + dp[j+1][l];
+            const auto& p = data.jobs[j+1].processing_time;
+            const auto& d = data.jobs[j+1].due_to;
+
+            if(d >= P - l) {
+                f[j+1][l] = p + f[j+2][l];
             } else {
-                dp[j][l] = min(
-                    d.jobs[j+1].processing_time + dp[j+1][l],
-                    dp[j+1][l+d.jobs[j+1].processing_time] + min(
-                        d.jobs[j+1].processing_time,
-                        max(0, d.jobs[j+1].due_to - (P - l - d.jobs[j+1].processing_time))
-                    )
+                const auto &s = (P - l - p); // start time of job j+1 if it added to the late jobs
+                f[j+1][l] = min(
+                    p + f[j+2][l],
+                    min(
+                        max(0, d - s),
+                        p
+                    ) + f[j+2][l+p]
                 );
             }
         }
     }
 
-    const auto result = dp[0][0];
-    for(int i = 0; i <= n; i++) {
-        delete[] dp[i];
+    // print dp table
+    for(int i = 0; i < n+1; i++) {
+        for(int j = 0; j <= P; j++) {
+            cout << f[i][j] << "\t";
+        }
+        cout << endl;
     }
-    delete[] dp;
+
+    const auto result = f[0][0];
+    for(int i = 0; i < n+1; i++) {
+        delete[] f[i];
+    }
+    delete[] f;
 
     return result;
 }
@@ -64,6 +76,7 @@ void process_example_file() {
 
     cout << "Time: " << time << endl;
     cout << "Cost after algo: " << result << endl;
+    cout << d << endl;
 }
 
 void process_generated_data() {
@@ -84,7 +97,7 @@ void process_generated_data() {
 
 int main() {
     process_example_file();
-    process_generated_data();
+    // process_generated_data();
 
     return 0;
 }
