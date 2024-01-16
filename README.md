@@ -5,6 +5,23 @@ It's not an official implementation of this paper.
 
 It's not finished - it's a work in progress
 
+# How to use
+Main program:
+```
+g++ main.cpp; ./a.out
+```
+
+## create a dataset
+Creates a dataset of 100 samples, and store it in the `data` folder.
+Each sample has the same (n=10, pmax=50, alpha=0.7).
+It calculate the desired output using full enumetarion.
+```
+g++ create_dataset.cpp; ./a.out
+```
+
+## test the dataset
+
+
 ## Credit
 
 Yoav Ben-Yehoshua, Gur Mosheiov,
