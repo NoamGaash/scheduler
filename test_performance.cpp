@@ -1,0 +1,31 @@
+#include <iostream>
+#include <vector>
+#include <numeric>
+#include <functional>
+#include "utils/data.cpp"
+#include "utils/timing.cpp"
+#include "utils/stddev.cpp"
+#include "algo/dp_solution.cpp"
+
+int main()
+{
+    cout << "n,p_max,alpha,max_time,avg_time,stddev" << endl;
+    for (int p_max = 50; p_max <= 100; p_max += 50)
+    {
+        for (int n = 20; n <= 200; n += 20)
+        {
+            for (float alpha = 0.7; alpha <= 1; alpha += 0.3)
+            {
+                vector<double> times;
+                for (int instance = 0; instance < 25; instance++)
+                {
+                    Data d(n, p_max, alpha);
+                    times.push_back(time_measure([&d]()
+                                                 { dp_solution(d); }));
+                }
+                cout << n << "," << p_max << "," << alpha << "," << *max_element(times.begin(), times.end()) << "," << accumulate(times.begin(), times.end(), 0.0) / times.size() << "," << stddev(times.begin(), times.end()) << endl;
+            }
+        }
+    }
+    return 0;
+}

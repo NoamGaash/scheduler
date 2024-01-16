@@ -6,6 +6,7 @@
 #include "utils/readCSV.cpp"
 #include "algo/dp_solution.cpp"
 #include "utils/timing.cpp"
+#include "utils/stddev.cpp"
 #include <vector>
 #include <numeric>
 #include <cmath>
@@ -13,16 +14,6 @@
 using namespace std;
 using namespace std::filesystem;
 
-double stddev(vector<double>::iterator begin, vector<double>::iterator end)
-{
-    double sum = 0;
-    double mean = accumulate(begin, end, 0.0) / (end - begin);
-    for (auto it = begin; it != end; it++)
-    {
-        sum += (*it - mean) * (*it - mean);
-    }
-    return sqrt(sum / (end - begin));
-}
 
 int main()
 {

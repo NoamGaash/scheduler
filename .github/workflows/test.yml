@@ -10,5 +10,6 @@ jobs:
               run: g++ main.cpp -o main; ./main
             - name: run test script
               run: g++ test_dataset.cpp -o test_dataset; ./test_dataset
-            
+            - name: run performance script
+              run: g++ test_performance.cpp -o test_performance; ./test_performance
 
