@@ -20,8 +20,10 @@ int main()
                 for (int instance = 0; instance < 25; instance++)
                 {
                     Data d(n, p_max, alpha);
-                    times.push_back(time_measure([&d]()
-                                                 { dp_solution(d); }));
+                    double time = time_measure([&d]()
+                                                 { dp_solution(d); });
+                    times.push_back(time);
+
                 }
                 cout << n << "," << p_max << "," << alpha << "," << *max_element(times.begin(), times.end()) << "," << accumulate(times.begin(), times.end(), 0.0) / times.size() << "," << stddev(times.begin(), times.end()) << endl;
             }
