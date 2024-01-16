@@ -1,0 +1,57 @@
+#include <algorithm>
+#include <filesystem>
+#include <fstream>
+#include <iostream>
+#include "utils/data.cpp"
+#include "utils/readCSV.cpp"
+#include "algo/dp_solution.cpp"
+#include "utils/timing.cpp"
+#include <vector>
+#include <numeric>
+#include <cmath>
+
+using namespace std;
+using namespace std::filesystem;
+
+double stddev(vector<double>::iterator begin, vector<double>::iterator end)
+{
+    double sum = 0;
+    double mean = accumulate(begin, end, 0.0) / (end - begin);
+    for (auto it = begin; it != end; it++)
+    {
+        sum += (*it - mean) * (*it - mean);
+    }
+    return sqrt(sum / (end - begin));
+}
+
+int main()
+{
+    const std::filesystem::path data{"data"};
+    vector<double> times;
+
+    for (auto const &dir_entry : directory_iterator{data})
+    {
+        string input = dir_entry.path().string() + "/input.csv";
+        string output = dir_entry.path().string() + "/output.txt";
+        auto d = Data(readCSV(input));
+        int result = 0;
+        auto time = time_measure([&d, &result]()
+                                 { result = dp_solution(d); });
+        times.push_back(time);
+        auto output_file = ifstream(output);
+        int expected_result;
+        output_file >> expected_result;
+        if(result != expected_result)
+        {
+            cout << "On file " << input << endl;
+            cout << "ERROR: result != expected_result" << endl;
+            cout << "Expected result: " << expected_result << endl;
+            cout << "Result: " << result << endl;
+            return 1;
+        }
+    }
+    cout << "All tests passed!" << endl;
+    cout << "Average time: " << accumulate(times.begin(), times.end(), 0.0) / times.size() << " seconds" << endl;
+    cout << "stddev: " << stddev(times.begin(), times.end()) << endl;
+    return 0;
+}

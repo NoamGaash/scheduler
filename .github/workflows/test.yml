@@ -6,6 +6,9 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v2
-            - run: g++ main.cpp -o main
-            - run: ./main
+            - name: run main script
+              run: g++ main.cpp -o main; ./main
+            - name: run test script
+              run: g++ test_dataset.cpp -o test_dataset; ./test_dataset
+            
 
