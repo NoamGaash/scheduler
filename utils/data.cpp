@@ -57,6 +57,7 @@ public:
             int d = rand() % (int)(alpha * P) + 1;
             jobs.push_back(Job(i + 1, p[i], d));
         }
+        delete[] p;
     }
 
     void display() const
