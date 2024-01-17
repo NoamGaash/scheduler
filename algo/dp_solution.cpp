@@ -1,3 +1,7 @@
+#include <iostream>
+#include <algorithm>
+#include <vector>
+#include "../utils/data.cpp"
 
 int dp_solution(Data &data, bool verbose = false)
 {
@@ -9,11 +13,13 @@ int dp_solution(Data &data, bool verbose = false)
         P += job.processing_time;
     }
 
+    int dp_rows = n + 1, dp_cols = P+1;
+
     // initialize dp table
-    int **f = new int *[n + 1];
-    for (int i = 0; i <= n; i++)
+    int **f = new int *[dp_rows];
+    for (int i = 0; i < dp_rows; i++)
     {
-        f[i] = new int[P + 1];
+        f[i] = new int[dp_cols];
         for (int j = 0; j <= P; j++)
         {
             f[i][j] = 0;
@@ -22,10 +28,10 @@ int dp_solution(Data &data, bool verbose = false)
 
     for (int j = n - 2; j >= -1; j--)
     {
-        for (int l = P; l >= 0; l--)
+        const auto &p = data.jobs[j + 1].processing_time;
+        const auto &d = data.jobs[j + 1].due_to;
+        for (int l = P-p; l >= 0; l--)
         {
-            const auto &p = data.jobs[j + 1].processing_time;
-            const auto &d = data.jobs[j + 1].due_to;
 
             if (d >= P - l)
             {
@@ -36,10 +42,8 @@ int dp_solution(Data &data, bool verbose = false)
                 const auto &s = (P - l - p); // start time of job j+1 if it added to the late jobs
                 f[j + 1][l] = min(
                     p + f[j + 2][l],
-                    min(
-                        max(0, d - s),
-                        p) +
-                        f[j + 2][l + p]);
+                    min(max(0, d - s), p) + f[j + 2][l + p]
+                );
             }
         }
     }
@@ -47,9 +51,9 @@ int dp_solution(Data &data, bool verbose = false)
     // print dp table
     if (verbose)
     {
-        for (int i = 0; i < n + 1; i++)
+        for (int i = 0; i < dp_rows; i++)
         {
-            for (int j = 0; j <= P; j++)
+            for (int j = 0; j < dp_cols; j++)
             {
                 cout << f[i][j] << "\t";
             }
@@ -58,7 +62,7 @@ int dp_solution(Data &data, bool verbose = false)
     }
 
     const auto result = f[0][0];
-    for (int i = 0; i < n + 1; i++)
+    for (int i = 0; i < dp_rows; i++)
     {
         delete[] f[i];
     }
