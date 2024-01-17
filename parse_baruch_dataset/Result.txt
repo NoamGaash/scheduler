@@ -1,0 +1,2407 @@
+
+_________________________________________ Set = 1 _________________________________________
+
+
+The jobs pj
+40	37	40	31	6	11	15	39	
+The jobs dj
+9	170	312	256	89	78	279	244	
+
+======================= Full enumeration ===========================
+
+
+
+The fully/partially early jobs
+3	4	7	8	
+
+The fully late jobs
+1	5	6	2	
+
+
+FE solution
+__________________________
+
+
+
+The fully Early jobs
+3	4	7	8	
+
+The fully/patially Late jobs
+1	5	6	2	
+
+An optimal sequence
+3	4	7	8	1	5	6	2	
+
+The jobs pj
+40	31	15	39	40	6	11	37	
+
+The jobs idj
+312	9	256	89	78	279	244	170	
+
+The jobs Cj
+40	71	86	125	165	171	182	219	
+
+The jobs iYj
+40	31	15	39	0	0	0	0	
+
+FE Total Cost = 125
+
+
+_________________________________________ Set = 2 _________________________________________
+
+
+The jobs pj
+17	15	25	27	30	39	12	8	
+The jobs dj
+106	98	233	291	14	31	202	81	
+
+======================= Full enumeration ===========================
+
+
+
+The fully/partially early jobs
+3	4	7	
+
+The fully late jobs
+5	6	1	2	8	
+
+
+FE solution
+__________________________
+
+
+
+The fully Early jobs
+3	4	7	
+
+The fully/patially Late jobs
+5	6	1	2	8	
+
+An optimal sequence
+3	4	7	5	6	1	2	8	
+
+The jobs pj
+25	27	12	30	39	17	15	8	
+
+The jobs idj
+233	291	14	31	106	98	202	81	
+
+The jobs Cj
+25	52	64	94	133	150	165	173	
+
+The jobs iYj
+25	27	12	0	0	0	0	0	
+
+FE Total Cost = 64
+
+
+_________________________________________ Set = 3 _________________________________________
+
+
+The jobs pj
+18	12	46	7	23	26	19	42	
+The jobs dj
+184	249	113	9	125	272	79	1	
+
+======================= Full enumeration ===========================
+
+
+
+The fully/partially early jobs
+2	6	3	1	
+
+The fully late jobs
+4	8	7	5	
+
+
+FE solution
+__________________________
+
+
+
+The fully Early jobs
+2	6	
+
+The fully/patially Late jobs
+4	8	7	3	5	1	
+
+An optimal sequence
+2	6	4	8	7	3	5	1	
+
+The jobs pj
+12	26	7	42	19	46	23	18	
+
+The jobs idj
+249	9	272	1	79	113	125	184	
+
+The jobs Cj
+12	38	45	87	106	152	175	193	
+
+The jobs iYj
+12	26	0	0	0	7	0	9	
+
+FE Total Cost = 54
+
+
+_________________________________________ Set = 4 _________________________________________
+
+
+The jobs pj
+31	38	37	19	33	44	26	31	
+The jobs dj
+23	90	318	86	127	16	235	318	
+
+======================= Full enumeration ===========================
+
+
+
+The fully/partially early jobs
+3	8	7	
+
+The fully late jobs
+1	6	2	4	5	
+
+
+FE solution
+__________________________
+
+
+
+The fully Early jobs
+3	8	
+
+The fully/patially Late jobs
+1	6	2	4	5	7	
+
+An optimal sequence
+3	8	1	6	2	4	5	7	
+
+The jobs pj
+37	31	31	44	38	19	33	26	
+
+The jobs idj
+318	23	16	90	86	127	318	235	
+
+The jobs Cj
+37	68	99	143	181	200	233	259	
+
+The jobs iYj
+37	31	0	0	0	0	0	2	
+
+FE Total Cost = 70
+
+
+_________________________________________ Set = 5 _________________________________________
+
+
+The jobs pj
+8	21	45	32	42	44	35	23	
+The jobs dj
+157	31	309	63	249	110	263	19	
+
+======================= Full enumeration ===========================
+
+
+
+The fully/partially early jobs
+3	7	5	
+
+The fully late jobs
+2	4	6	1	8	
+
+
+FE solution
+__________________________
+
+
+
+The fully Early jobs
+3	7	
+
+The fully/patially Late jobs
+2	4	6	1	8	5	
+
+An optimal sequence
+3	7	2	4	6	1	8	5	
+
+The jobs pj
+45	35	21	32	44	8	23	42	
+
+The jobs idj
+309	31	63	263	110	157	19	249	
+
+The jobs Cj
+45	80	101	133	177	185	208	250	
+
+The jobs iYj
+45	35	0	0	0	0	0	41	
+
+FE Total Cost = 121
+
+
+_________________________________________ Set = 6 _________________________________________
+
+
+The jobs pj
+14	9	18	45	20	17	10	30	
+The jobs dj
+312	21	288	145	1	28	27	168	
+
+======================= Full enumeration ===========================
+
+
+
+The fully/partially early jobs
+1	3	8	4	
+
+The fully late jobs
+2	5	6	7	
+
+
+FE solution
+__________________________
+
+
+
+The fully Early jobs
+1	3	8	
+
+The fully/patially Late jobs
+2	5	6	7	4	
+
+An optimal sequence
+1	3	8	2	5	6	7	4	
+
+The jobs pj
+14	18	30	9	20	17	10	45	
+
+The jobs idj
+312	288	21	1	28	27	168	145	
+
+The jobs Cj
+14	32	62	71	91	108	118	163	
+
+The jobs iYj
+14	18	30	0	0	0	0	27	
+
+FE Total Cost = 89
+
+
+_________________________________________ Set = 7 _________________________________________
+
+
+The jobs pj
+44	24	33	33	20	23	28	9	
+The jobs dj
+90	71	276	125	139	317	16	266	
+
+======================= Full enumeration ===========================
+
+
+
+The fully/partially early jobs
+3	6	8	
+
+The fully late jobs
+7	2	1	4	5	
+
+
+FE solution
+__________________________
+
+
+
+The fully Early jobs
+3	6	8	
+
+The fully/patially Late jobs
+7	2	1	4	5	
+
+An optimal sequence
+3	6	8	7	2	1	4	5	
+
+The jobs pj
+33	23	9	28	24	44	33	20	
+
+The jobs idj
+276	317	16	71	90	125	139	266	
+
+The jobs Cj
+33	56	65	93	117	161	194	214	
+
+The jobs iYj
+33	23	9	0	0	0	0	0	
+
+FE Total Cost = 65
+
+
+_________________________________________ Set = 8 _________________________________________
+
+
+The jobs pj
+35	44	32	15	45	38	6	27	
+The jobs dj
+282	131	148	220	139	235	108	46	
+
+======================= Full enumeration ===========================
+
+
+
+The fully/partially early jobs
+1	4	6	2	
+
+The fully late jobs
+8	7	3	5	
+
+
+FE solution
+__________________________
+
+
+
+The fully Early jobs
+1	4	6	
+
+The fully/patially Late jobs
+8	7	2	3	5	
+
+An optimal sequence
+1	4	6	8	7	2	3	5	
+
+The jobs pj
+35	15	38	27	6	44	32	45	
+
+The jobs idj
+282	220	235	46	108	131	148	139	
+
+The jobs Cj
+35	50	88	115	121	165	197	242	
+
+The jobs iYj
+35	15	38	0	0	10	0	0	
+
+FE Total Cost = 98
+
+
+_________________________________________ Set = 9 _________________________________________
+
+
+The jobs pj
+6	28	6	41	13	30	28	16	
+The jobs dj
+35	293	2	312	163	189	250	0	
+
+======================= Full enumeration ===========================
+
+
+
+The fully/partially early jobs
+2	4	6	7	5	
+
+The fully late jobs
+3	1	8	
+
+
+FE solution
+__________________________
+
+
+
+The fully Early jobs
+2	4	6	7	
+
+The fully/patially Late jobs
+3	1	8	5	
+
+An optimal sequence
+2	4	6	7	3	1	8	5	
+
+The jobs pj
+28	41	30	28	6	6	16	13	
+
+The jobs idj
+293	2	312	35	189	250	0	163	
+
+The jobs Cj
+28	69	99	127	133	139	155	168	
+
+The jobs iYj
+28	41	30	28	0	0	0	8	
+
+FE Total Cost = 135
+
+
+_________________________________________ Set = 10 _________________________________________
+
+
+The jobs pj
+14	38	47	35	30	29	29	32	
+The jobs dj
+88	29	190	152	135	17	176	294	
+
+======================= Full enumeration ===========================
+
+
+
+The fully/partially early jobs
+7	8	
+
+The fully late jobs
+2	6	1	5	4	3	
+
+
+FE solution
+__________________________
+
+
+
+The fully Early jobs
+7	8	
+
+The fully/patially Late jobs
+2	6	1	5	4	3	
+
+An optimal sequence
+7	8	2	6	1	5	4	3	
+
+The jobs pj
+29	32	38	29	14	30	35	47	
+
+The jobs idj
+176	29	17	88	294	135	152	190	
+
+The jobs Cj
+29	61	99	128	142	172	207	254	
+
+The jobs iYj
+29	32	0	0	0	0	0	0	
+
+FE Total Cost = 61
+
+
+_________________________________________ Set = 11 _________________________________________
+
+
+The jobs pj
+31	39	41	9	39	23	34	6	
+The jobs dj
+254	312	85	192	100	150	90	11	
+
+======================= Full enumeration ===========================
+
+
+
+The fully/partially early jobs
+1	2	4	
+
+The fully late jobs
+8	3	5	6	7	
+
+
+FE solution
+__________________________
+
+
+
+The fully Early jobs
+1	2	4	
+
+The fully/patially Late jobs
+8	3	5	6	7	
+
+An optimal sequence
+1	2	4	8	3	5	6	7	
+
+The jobs pj
+31	39	9	6	41	39	23	34	
+
+The jobs idj
+254	312	192	11	85	100	150	90	
+
+The jobs Cj
+31	70	79	85	126	165	188	222	
+
+The jobs iYj
+31	39	9	0	0	0	0	0	
+
+FE Total Cost = 79
+
+
+_________________________________________ Set = 12 _________________________________________
+
+
+The jobs pj
+34	20	29	40	44	29	22	47	
+The jobs dj
+98	294	37	194	271	207	61	227	
+
+======================= Full enumeration ===========================
+
+
+
+The fully/partially early jobs
+2	5	8	
+
+The fully late jobs
+3	7	1	4	6	
+
+
+FE solution
+__________________________
+
+
+
+The fully Early jobs
+2	5	8	
+
+The fully/patially Late jobs
+3	7	1	4	6	
+
+An optimal sequence
+2	5	8	3	7	1	4	6	
+
+The jobs pj
+20	44	47	29	22	34	40	29	
+
+The jobs idj
+294	271	37	61	98	227	194	207	
+
+The jobs Cj
+20	64	111	140	162	196	236	265	
+
+The jobs iYj
+20	44	47	0	0	0	0	0	
+
+FE Total Cost = 111
+
+
+_________________________________________ Set = 13 _________________________________________
+
+
+The jobs pj
+15	21	36	36	32	32	23	20	
+The jobs dj
+259	71	133	62	99	157	69	56	
+
+======================= Full enumeration ===========================
+
+
+
+The fully/partially early jobs
+1	3	8	
+
+The fully late jobs
+2	4	5	6	7	
+
+
+FE solution
+__________________________
+
+
+
+The fully Early jobs
+1	3	
+
+The fully/patially Late jobs
+8	2	4	5	6	7	
+
+An optimal sequence
+1	3	8	2	4	5	6	7	
+
+The jobs pj
+15	36	20	21	36	32	32	23	
+
+The jobs idj
+259	133	56	71	62	99	157	69	
+
+The jobs Cj
+15	51	71	92	128	160	192	215	
+
+The jobs iYj
+15	36	5	0	0	0	0	0	
+
+FE Total Cost = 56
+
+
+_________________________________________ Set = 14 _________________________________________
+
+
+The jobs pj
+28	23	28	26	22	10	36	19	
+The jobs dj
+248	235	240	48	240	203	41	47	
+
+======================= Full enumeration ===========================
+
+
+
+The fully/partially early jobs
+1	2	3	5	6	
+
+The fully late jobs
+4	7	8	
+
+
+FE solution
+__________________________
+
+
+
+The fully Early jobs
+1	2	3	5	6	
+
+The fully/patially Late jobs
+4	7	8	
+
+An optimal sequence
+1	2	3	5	6	4	7	8	
+
+The jobs pj
+28	23	28	22	10	26	36	19	
+
+The jobs idj
+248	235	240	48	240	203	41	47	
+
+The jobs Cj
+28	51	79	101	111	137	173	192	
+
+The jobs iYj
+28	23	28	22	10	0	0	0	
+
+FE Total Cost = 111
+
+
+_________________________________________ Set = 15 _________________________________________
+
+
+The jobs pj
+18	28	15	12	25	15	33	44	
+The jobs dj
+91	164	42	309	36	15	212	144	
+
+======================= Full enumeration ===========================
+
+
+
+The fully/partially early jobs
+2	4	7	
+
+The fully late jobs
+5	3	6	1	8	
+
+
+FE solution
+__________________________
+
+
+
+The fully Early jobs
+2	4	7	
+
+The fully/patially Late jobs
+5	3	6	1	8	
+
+An optimal sequence
+2	4	7	5	3	6	1	8	
+
+The jobs pj
+28	12	33	25	15	15	18	44	
+
+The jobs idj
+164	309	36	42	15	91	212	144	
+
+The jobs Cj
+28	40	73	98	113	128	146	190	
+
+The jobs iYj
+28	12	33	0	0	0	0	0	
+
+FE Total Cost = 73
+
+
+_________________________________________ Set = 16 _________________________________________
+
+
+The jobs pj
+49	36	46	43	47	12	7	20	
+The jobs dj
+46	132	42	147	107	216	205	208	
+
+======================= Full enumeration ===========================
+
+
+
+The fully/partially early jobs
+2	3	
+
+The fully late jobs
+1	5	4	6	7	8	
+
+
+FE solution
+__________________________
+
+
+
+The fully Early jobs
+2	
+
+The fully/patially Late jobs
+3	1	5	4	6	7	8	
+
+An optimal sequence
+2	3	1	5	4	6	7	8	
+
+The jobs pj
+36	46	49	47	43	12	7	20	
+
+The jobs idj
+132	42	46	107	147	216	205	208	
+
+The jobs Cj
+36	82	131	178	221	233	240	260	
+
+The jobs iYj
+36	6	0	0	0	0	0	0	
+
+FE Total Cost = 42
+
+
+_________________________________________ Set = 17 _________________________________________
+
+
+The jobs pj
+41	29	45	17	10	48	29	12	
+The jobs dj
+4	236	1	131	160	19	32	214	
+
+======================= Full enumeration ===========================
+
+
+
+The fully/partially early jobs
+2	
+
+The fully late jobs
+1	3	6	4	5	7	8	
+
+
+FE solution
+__________________________
+
+
+
+The fully Early jobs
+2	
+
+The fully/patially Late jobs
+1	3	6	4	5	7	8	
+
+An optimal sequence
+2	1	3	6	4	5	7	8	
+
+The jobs pj
+29	41	45	48	17	10	29	12	
+
+The jobs idj
+236	4	1	19	131	160	32	214	
+
+The jobs Cj
+29	70	115	163	180	190	219	231	
+
+The jobs iYj
+29	0	0	0	0	0	0	0	
+
+FE Total Cost = 29
+
+
+_________________________________________ Set = 18 _________________________________________
+
+
+The jobs pj
+45	47	34	22	25	9	22	22	
+The jobs dj
+169	273	257	53	304	307	132	134	
+
+======================= Full enumeration ===========================
+
+
+
+The fully/partially early jobs
+2	3	5	6	
+
+The fully late jobs
+4	7	8	1	
+
+
+FE solution
+__________________________
+
+
+
+The fully Early jobs
+2	3	5	6	
+
+The fully/patially Late jobs
+4	7	8	1	
+
+An optimal sequence
+2	3	5	6	4	7	8	1	
+
+The jobs pj
+47	34	25	9	22	22	22	45	
+
+The jobs idj
+273	257	53	304	307	132	134	169	
+
+The jobs Cj
+47	81	106	115	137	159	181	226	
+
+The jobs iYj
+47	34	25	9	0	0	0	0	
+
+FE Total Cost = 115
+
+
+_________________________________________ Set = 19 _________________________________________
+
+
+The jobs pj
+23	34	9	9	35	5	42	24	
+The jobs dj
+138	261	167	94	130	315	133	135	
+
+======================= Full enumeration ===========================
+
+
+
+The fully/partially early jobs
+1	2	3	6	7	5	
+
+The fully late jobs
+4	8	
+
+
+FE solution
+__________________________
+
+
+
+The fully Early jobs
+1	2	3	6	7	
+
+The fully/patially Late jobs
+4	5	8	
+
+An optimal sequence
+1	2	3	6	7	4	5	8	
+
+The jobs pj
+23	34	9	5	42	9	35	24	
+
+The jobs idj
+138	261	167	315	133	94	130	135	
+
+The jobs Cj
+23	57	66	71	113	122	157	181	
+
+The jobs iYj
+23	34	9	5	42	0	8	0	
+
+FE Total Cost = 121
+
+
+_________________________________________ Set = 20 _________________________________________
+
+
+The jobs pj
+36	48	31	41	5	44	8	32	
+The jobs dj
+223	318	67	58	34	66	170	138	
+
+======================= Full enumeration ===========================
+
+
+
+The fully/partially early jobs
+2	4	1	
+
+The fully late jobs
+5	3	6	8	7	
+
+
+FE solution
+__________________________
+
+
+
+The fully Early jobs
+2	
+
+The fully/patially Late jobs
+5	4	3	6	8	7	1	
+
+An optimal sequence
+2	5	4	3	6	8	7	1	
+
+The jobs pj
+48	5	41	31	44	32	8	36	
+
+The jobs idj
+318	34	58	67	66	138	170	223	
+
+The jobs Cj
+48	53	94	125	169	201	209	245	
+
+The jobs iYj
+48	0	5	0	0	0	0	14	
+
+FE Total Cost = 67
+
+
+_________________________________________ Set = 21 _________________________________________
+
+
+The jobs pj
+22	15	11	6	16	10	29	39	
+The jobs dj
+206	223	28	216	294	257	288	24	
+
+======================= Full enumeration ===========================
+
+
+
+The fully/partially early jobs
+1	2	4	5	6	7	
+
+The fully late jobs
+3	8	
+
+
+FE solution
+__________________________
+
+
+
+The fully Early jobs
+1	2	4	5	6	7	
+
+The fully/patially Late jobs
+3	8	
+
+An optimal sequence
+1	2	4	5	6	7	3	8	
+
+The jobs pj
+22	15	6	16	10	29	11	39	
+
+The jobs idj
+206	223	28	216	294	257	288	24	
+
+The jobs Cj
+22	37	43	59	69	98	109	148	
+
+The jobs iYj
+22	15	6	16	10	29	0	0	
+
+FE Total Cost = 98
+
+
+_________________________________________ Set = 22 _________________________________________
+
+
+The jobs pj
+29	31	26	8	45	6	45	47	
+The jobs dj
+25	256	223	224	151	213	159	144	
+
+======================= Full enumeration ===========================
+
+
+
+The fully/partially early jobs
+2	3	4	5	8	
+
+The fully late jobs
+1	7	6	
+
+
+FE solution
+__________________________
+
+
+
+The fully Early jobs
+2	3	4	5	
+
+The fully/patially Late jobs
+1	8	7	6	
+
+An optimal sequence
+2	3	4	5	1	8	7	6	
+
+The jobs pj
+31	26	8	45	29	47	45	6	
+
+The jobs idj
+256	25	223	224	151	144	159	213	
+
+The jobs Cj
+31	57	65	110	139	186	231	237	
+
+The jobs iYj
+31	26	8	45	0	5	0	0	
+
+FE Total Cost = 115
+
+
+_________________________________________ Set = 23 _________________________________________
+
+
+The jobs pj
+37	31	14	34	14	27	12	48	
+The jobs dj
+130	116	1	285	90	12	82	250	
+
+======================= Full enumeration ===========================
+
+
+
+The fully/partially early jobs
+4	8	
+
+The fully late jobs
+3	6	2	1	5	7	
+
+
+FE solution
+__________________________
+
+
+
+The fully Early jobs
+4	8	
+
+The fully/patially Late jobs
+3	6	2	1	5	7	
+
+An optimal sequence
+4	8	3	6	2	1	5	7	
+
+The jobs pj
+34	48	14	27	31	37	14	12	
+
+The jobs idj
+285	1	12	250	116	130	90	82	
+
+The jobs Cj
+34	82	96	123	154	191	205	217	
+
+The jobs iYj
+34	48	0	0	0	0	0	0	
+
+FE Total Cost = 82
+
+
+_________________________________________ Set = 24 _________________________________________
+
+
+The jobs pj
+14	36	47	27	26	29	49	9	
+The jobs dj
+243	85	170	64	278	40	67	5	
+
+======================= Full enumeration ===========================
+
+
+
+The fully/partially early jobs
+1	5	
+
+The fully late jobs
+6	4	2	7	3	8	
+
+
+FE solution
+__________________________
+
+
+
+The fully Early jobs
+1	5	
+
+The fully/patially Late jobs
+6	4	2	7	3	8	
+
+An optimal sequence
+1	5	6	4	2	7	3	8	
+
+The jobs pj
+14	26	29	27	36	49	47	9	
+
+The jobs idj
+243	278	40	64	85	67	170	5	
+
+The jobs Cj
+14	40	69	96	132	181	228	237	
+
+The jobs iYj
+14	26	0	0	0	0	0	0	
+
+FE Total Cost = 40
+
+
+_________________________________________ Set = 25 _________________________________________
+
+
+The jobs pj
+7	9	23	47	5	48	31	34	
+The jobs dj
+41	264	155	176	286	234	189	152	
+
+======================= Full enumeration ===========================
+
+
+
+The fully/partially early jobs
+2	4	5	6	7	8	
+
+The fully late jobs
+1	3	
+
+
+FE solution
+__________________________
+
+
+
+The fully Early jobs
+2	4	5	6	7	
+
+The fully/patially Late jobs
+1	8	3	
+
+An optimal sequence
+2	4	5	6	7	1	8	3	
+
+The jobs pj
+9	47	5	48	31	7	34	23	
+
+The jobs idj
+264	176	41	286	234	189	152	155	
+
+The jobs Cj
+9	56	61	109	140	147	181	204	
+
+The jobs iYj
+9	47	5	48	31	0	5	0	
+
+FE Total Cost = 145
+
+
+_________________________________________ Set = 26 _________________________________________
+
+
+The jobs pj
+13	12	31	33	20	49	49	32	
+The jobs dj
+154	136	279	140	88	285	313	145	
+
+======================= Full enumeration ===========================
+
+
+
+The fully/partially early jobs
+3	6	7	
+
+The fully late jobs
+5	2	1	4	8	
+
+
+FE solution
+__________________________
+
+
+
+The fully Early jobs
+3	6	7	
+
+The fully/patially Late jobs
+5	2	1	4	8	
+
+An optimal sequence
+3	6	7	5	2	1	4	8	
+
+The jobs pj
+31	49	49	20	12	13	33	32	
+
+The jobs idj
+279	285	313	88	136	154	140	145	
+
+The jobs Cj
+31	80	129	149	161	174	207	239	
+
+The jobs iYj
+31	49	49	0	0	0	0	0	
+
+FE Total Cost = 129
+
+
+_________________________________________ Set = 27 _________________________________________
+
+
+The jobs pj
+34	13	40	7	19	43	8	15	
+The jobs dj
+282	42	205	179	100	150	132	278	
+
+======================= Full enumeration ===========================
+
+
+
+The fully/partially early jobs
+1	3	4	8	7	6	
+
+The fully late jobs
+2	5	
+
+
+FE solution
+__________________________
+
+
+
+The fully Early jobs
+1	3	4	8	
+
+The fully/patially Late jobs
+2	5	7	6	
+
+An optimal sequence
+1	3	4	8	2	5	7	6	
+
+The jobs pj
+34	40	7	15	13	19	8	43	
+
+The jobs idj
+282	205	42	179	278	100	132	150	
+
+The jobs Cj
+34	74	81	96	109	128	136	179	
+
+The jobs iYj
+34	40	7	15	0	0	4	14	
+
+FE Total Cost = 114
+
+
+_________________________________________ Set = 28 _________________________________________
+
+
+The jobs pj
+30	47	43	18	15	25	42	38	
+The jobs dj
+203	107	253	144	264	260	167	277	
+
+======================= Full enumeration ===========================
+
+
+
+The fully/partially early jobs
+3	5	6	8	
+
+The fully late jobs
+2	4	7	1	
+
+
+FE solution
+__________________________
+
+
+
+The fully Early jobs
+3	5	6	8	
+
+The fully/patially Late jobs
+2	4	7	1	
+
+An optimal sequence
+3	5	6	8	2	4	7	1	
+
+The jobs pj
+43	15	25	38	47	18	42	30	
+
+The jobs idj
+253	264	260	277	107	144	167	203	
+
+The jobs Cj
+43	58	83	121	168	186	228	258	
+
+The jobs iYj
+43	15	25	38	0	0	0	0	
+
+FE Total Cost = 121
+
+
+_________________________________________ Set = 29 _________________________________________
+
+
+The jobs pj
+24	18	15	28	46	5	19	45	
+The jobs dj
+125	113	161	30	81	114	205	147	
+
+======================= Full enumeration ===========================
+
+
+
+The fully/partially early jobs
+2	3	7	5	
+
+The fully late jobs
+4	1	6	8	
+
+
+FE solution
+__________________________
+
+
+
+The fully Early jobs
+2	3	7	
+
+The fully/patially Late jobs
+4	5	1	6	8	
+
+An optimal sequence
+2	3	7	4	5	1	6	8	
+
+The jobs pj
+18	15	19	28	46	24	5	45	
+
+The jobs idj
+113	161	30	205	81	125	114	147	
+
+The jobs Cj
+18	33	52	80	126	150	155	200	
+
+The jobs iYj
+18	15	19	0	1	0	0	0	
+
+FE Total Cost = 53
+
+
+_________________________________________ Set = 30 _________________________________________
+
+
+The jobs pj
+10	47	10	34	49	30	47	31	
+The jobs dj
+89	27	84	178	259	84	306	45	
+
+======================= Full enumeration ===========================
+
+
+
+The fully/partially early jobs
+5	7	
+
+The fully late jobs
+2	1	3	6	4	8	
+
+
+FE solution
+__________________________
+
+
+
+The fully Early jobs
+5	7	
+
+The fully/patially Late jobs
+2	1	3	6	4	8	
+
+An optimal sequence
+5	7	2	1	3	6	4	8	
+
+The jobs pj
+49	47	47	10	10	30	34	31	
+
+The jobs idj
+259	27	89	84	84	306	178	45	
+
+The jobs Cj
+49	96	143	153	163	193	227	258	
+
+The jobs iYj
+49	47	0	0	0	0	0	0	
+
+FE Total Cost = 96
+
+
+_________________________________________ Set = 31 _________________________________________
+
+
+The jobs pj
+6	46	32	8	39	40	24	29	
+The jobs dj
+11	192	319	196	187	12	193	167	
+
+======================= Full enumeration ===========================
+
+
+
+The fully/partially early jobs
+2	3	5	8	7	
+
+The fully late jobs
+1	6	4	
+
+
+FE solution
+__________________________
+
+
+
+The fully Early jobs
+2	3	5	
+
+The fully/patially Late jobs
+1	6	8	7	4	
+
+An optimal sequence
+2	3	5	1	6	8	7	4	
+
+The jobs pj
+46	32	39	6	40	29	24	8	
+
+The jobs idj
+192	11	319	187	12	167	193	196	
+
+The jobs Cj
+46	78	117	123	163	192	216	224	
+
+The jobs iYj
+46	32	39	0	0	4	1	0	
+
+FE Total Cost = 122
+
+
+_________________________________________ Set = 32 _________________________________________
+
+
+The jobs pj
+15	14	36	9	33	25	10	47	
+The jobs dj
+38	255	56	115	217	49	259	302	
+
+======================= Full enumeration ===========================
+
+
+
+The fully/partially early jobs
+2	5	7	8	
+
+The fully late jobs
+1	3	6	4	
+
+
+FE solution
+__________________________
+
+
+
+The fully Early jobs
+2	5	7	8	
+
+The fully/patially Late jobs
+1	3	6	4	
+
+An optimal sequence
+2	5	7	8	1	3	6	4	
+
+The jobs pj
+14	33	10	47	15	36	25	9	
+
+The jobs idj
+255	217	38	56	49	115	259	302	
+
+The jobs Cj
+14	47	57	104	119	155	180	189	
+
+The jobs iYj
+14	33	10	47	0	0	0	0	
+
+FE Total Cost = 104
+
+
+_________________________________________ Set = 33 _________________________________________
+
+
+The jobs pj
+34	28	32	38	49	11	46	48	
+The jobs dj
+272	3	307	274	105	219	7	37	
+
+======================= Full enumeration ===========================
+
+
+
+The fully/partially early jobs
+3	4	1	
+
+The fully late jobs
+2	7	5	8	6	
+
+
+FE solution
+__________________________
+
+
+
+The fully Early jobs
+3	4	
+
+The fully/patially Late jobs
+2	7	5	8	6	1	
+
+An optimal sequence
+3	4	2	7	5	8	6	1	
+
+The jobs pj
+32	38	28	46	49	48	11	34	
+
+The jobs idj
+307	3	274	7	105	37	219	272	
+
+The jobs Cj
+32	70	98	144	193	241	252	286	
+
+The jobs iYj
+32	38	0	0	0	0	0	20	
+
+FE Total Cost = 90
+
+
+_________________________________________ Set = 34 _________________________________________
+
+
+The jobs pj
+6	38	38	18	23	41	30	26	
+The jobs dj
+167	202	101	237	10	295	6	232	
+
+======================= Full enumeration ===========================
+
+
+
+The fully/partially early jobs
+4	6	8	2	
+
+The fully late jobs
+5	7	3	1	
+
+
+FE solution
+__________________________
+
+
+
+The fully Early jobs
+4	6	8	
+
+The fully/patially Late jobs
+5	7	3	1	2	
+
+An optimal sequence
+4	6	8	5	7	3	1	2	
+
+The jobs pj
+18	41	26	23	30	38	6	38	
+
+The jobs idj
+237	10	295	6	101	232	167	202	
+
+The jobs Cj
+18	59	85	108	138	176	182	220	
+
+The jobs iYj
+18	41	26	0	0	0	0	20	
+
+FE Total Cost = 105
+
+
+_________________________________________ Set = 35 _________________________________________
+
+
+The jobs pj
+14	35	45	45	42	27	35	34	
+The jobs dj
+171	239	43	273	215	1	14	25	
+
+======================= Full enumeration ===========================
+
+
+
+The fully/partially early jobs
+4	5	
+
+The fully late jobs
+3	6	7	8	1	2	
+
+
+FE solution
+__________________________
+
+
+
+The fully Early jobs
+4	
+
+The fully/patially Late jobs
+3	6	7	8	1	5	2	
+
+An optimal sequence
+4	3	6	7	8	1	5	2	
+
+The jobs pj
+45	45	27	35	34	14	42	35	
+
+The jobs idj
+273	43	1	14	25	171	215	239	
+
+The jobs Cj
+45	90	117	152	186	200	242	277	
+
+The jobs iYj
+45	0	0	0	0	0	15	0	
+
+FE Total Cost = 60
+
+
+_________________________________________ Set = 36 _________________________________________
+
+
+The jobs pj
+14	31	20	16	33	43	45	31	
+The jobs dj
+164	245	120	276	203	172	296	228	
+
+======================= Full enumeration ===========================
+
+
+
+The fully/partially early jobs
+1	2	4	7	8	6	5	
+
+The fully late jobs
+3	
+
+
+FE solution
+__________________________
+
+
+
+The fully Early jobs
+1	2	4	7	8	
+
+The fully/patially Late jobs
+3	6	5	
+
+An optimal sequence
+1	2	4	7	8	3	6	5	
+
+The jobs pj
+14	31	16	45	31	20	43	33	
+
+The jobs idj
+164	245	276	296	228	120	172	203	
+
+The jobs Cj
+14	45	61	106	137	157	200	233	
+
+The jobs iYj
+14	31	16	45	31	0	15	3	
+
+FE Total Cost = 155
+
+
+_________________________________________ Set = 37 _________________________________________
+
+
+The jobs pj
+17	46	5	11	38	42	6	46	
+The jobs dj
+139	6	55	288	304	73	66	10	
+
+======================= Full enumeration ===========================
+
+
+
+The fully/partially early jobs
+4	5	
+
+The fully late jobs
+2	3	6	1	7	8	
+
+
+FE solution
+__________________________
+
+
+
+The fully Early jobs
+4	5	
+
+The fully/patially Late jobs
+2	3	6	1	7	8	
+
+An optimal sequence
+4	5	2	3	6	1	7	8	
+
+The jobs pj
+11	38	46	5	42	17	6	46	
+
+The jobs idj
+288	6	55	304	73	139	66	10	
+
+The jobs Cj
+11	49	95	100	142	159	165	211	
+
+The jobs iYj
+11	38	0	0	0	0	0	0	
+
+FE Total Cost = 49
+
+
+_________________________________________ Set = 38 _________________________________________
+
+
+The jobs pj
+12	42	29	13	40	19	10	26	
+The jobs dj
+244	134	308	55	128	161	86	294	
+
+======================= Full enumeration ===========================
+
+
+
+The fully/partially early jobs
+1	3	6	8	5	
+
+The fully late jobs
+4	7	2	
+
+
+FE solution
+__________________________
+
+
+
+The fully Early jobs
+1	3	6	8	
+
+The fully/patially Late jobs
+4	7	5	2	
+
+An optimal sequence
+1	3	6	8	4	7	5	2	
+
+The jobs pj
+12	29	19	26	13	10	40	42	
+
+The jobs idj
+244	308	161	55	294	86	128	134	
+
+The jobs Cj
+12	41	60	86	99	109	149	191	
+
+The jobs iYj
+12	29	19	26	0	0	19	0	
+
+FE Total Cost = 105
+
+
+_________________________________________ Set = 39 _________________________________________
+
+
+The jobs pj
+8	44	24	20	17	35	36	43	
+The jobs dj
+178	17	199	188	210	41	147	121	
+
+======================= Full enumeration ===========================
+
+
+
+The fully/partially early jobs
+1	3	8	
+
+The fully late jobs
+2	6	7	4	5	
+
+
+FE solution
+__________________________
+
+
+
+The fully Early jobs
+1	3	
+
+The fully/patially Late jobs
+2	6	8	7	4	5	
+
+An optimal sequence
+1	3	2	6	8	7	4	5	
+
+The jobs pj
+8	24	44	35	43	36	20	17	
+
+The jobs idj
+178	199	17	41	121	147	188	210	
+
+The jobs Cj
+8	32	76	111	154	190	210	227	
+
+The jobs iYj
+8	24	0	0	10	0	0	0	
+
+FE Total Cost = 42
+
+
+_________________________________________ Set = 40 _________________________________________
+
+
+The jobs pj
+47	31	13	33	30	26	36	9	
+The jobs dj
+195	268	186	125	128	271	67	44	
+
+======================= Full enumeration ===========================
+
+
+
+The fully/partially early jobs
+2	3	6	4	1	
+
+The fully late jobs
+7	8	5	
+
+
+FE solution
+__________________________
+
+
+
+The fully Early jobs
+2	3	6	
+
+The fully/patially Late jobs
+7	8	4	5	1	
+
+An optimal sequence
+2	3	6	7	8	4	5	1	
+
+The jobs pj
+31	13	26	36	9	33	30	47	
+
+The jobs idj
+268	186	271	67	44	125	128	195	
+
+The jobs Cj
+31	44	70	106	115	148	178	225	
+
+The jobs iYj
+31	13	26	0	0	10	0	17	
+
+FE Total Cost = 97
+
+
+_________________________________________ Set = 41 _________________________________________
+
+
+The jobs pj
+26	11	26	35	13	7	40	18	
+The jobs dj
+181	37	304	249	143	319	51	95	
+
+======================= Full enumeration ===========================
+
+
+
+The fully/partially early jobs
+1	3	4	6	
+
+The fully late jobs
+2	7	5	8	
+
+
+FE solution
+__________________________
+
+
+
+The fully Early jobs
+1	3	4	6	
+
+The fully/patially Late jobs
+2	7	5	8	
+
+An optimal sequence
+1	3	4	6	2	7	5	8	
+
+The jobs pj
+26	26	35	7	11	40	13	18	
+
+The jobs idj
+181	304	37	249	319	51	143	95	
+
+The jobs Cj
+26	52	87	94	105	145	158	176	
+
+The jobs iYj
+26	26	35	7	0	0	0	0	
+
+FE Total Cost = 94
+
+
+_________________________________________ Set = 42 _________________________________________
+
+
+The jobs pj
+16	49	11	22	39	11	24	14	
+The jobs dj
+15	96	207	169	277	44	96	300	
+
+======================= Full enumeration ===========================
+
+
+
+The fully/partially early jobs
+3	5	8	2	4	
+
+The fully late jobs
+1	6	7	
+
+
+FE solution
+__________________________
+
+
+
+The fully Early jobs
+3	5	8	
+
+The fully/patially Late jobs
+1	6	2	7	4	
+
+An optimal sequence
+3	5	8	1	6	2	7	4	
+
+The jobs pj
+11	39	14	16	11	49	24	22	
+
+The jobs idj
+207	277	15	44	300	96	96	169	
+
+The jobs Cj
+11	50	64	80	91	140	164	186	
+
+The jobs iYj
+11	39	14	0	0	5	0	5	
+
+FE Total Cost = 74
+
+
+_________________________________________ Set = 43 _________________________________________
+
+
+The jobs pj
+49	24	24	31	20	29	45	45	
+The jobs dj
+249	158	167	200	39	214	23	242	
+
+======================= Full enumeration ===========================
+
+
+
+The fully/partially early jobs
+1	8	
+
+The fully late jobs
+5	7	2	3	4	6	
+
+
+FE solution
+__________________________
+
+
+
+The fully Early jobs
+1	8	
+
+The fully/patially Late jobs
+5	7	2	3	4	6	
+
+An optimal sequence
+1	8	5	7	2	3	4	6	
+
+The jobs pj
+49	45	20	45	24	24	31	29	
+
+The jobs idj
+249	39	23	242	158	167	200	214	
+
+The jobs Cj
+49	94	114	159	183	207	238	267	
+
+The jobs iYj
+49	45	0	0	0	0	0	0	
+
+FE Total Cost = 94
+
+
+_________________________________________ Set = 44 _________________________________________
+
+
+The jobs pj
+25	16	9	31	21	34	29	20	
+The jobs dj
+229	37	154	280	58	149	162	217	
+
+======================= Full enumeration ===========================
+
+
+
+The fully/partially early jobs
+1	4	7	8	6	
+
+The fully late jobs
+2	5	3	
+
+
+FE solution
+__________________________
+
+
+
+The fully Early jobs
+1	4	7	8	
+
+The fully/patially Late jobs
+2	5	6	3	
+
+An optimal sequence
+1	4	7	8	2	5	6	3	
+
+The jobs pj
+25	31	29	20	16	21	34	9	
+
+The jobs idj
+229	280	37	58	162	217	149	154	
+
+The jobs Cj
+25	56	85	105	121	142	176	185	
+
+The jobs iYj
+25	31	29	20	0	0	7	0	
+
+FE Total Cost = 112
+
+
+_________________________________________ Set = 45 _________________________________________
+
+
+The jobs pj
+41	22	27	42	42	14	45	8	
+The jobs dj
+54	167	196	176	207	160	114	159	
+
+======================= Full enumeration ===========================
+
+
+
+The fully/partially early jobs
+3	5	7	8	
+
+The fully late jobs
+1	6	2	4	
+
+
+FE solution
+__________________________
+
+
+
+The fully Early jobs
+3	5	
+
+The fully/patially Late jobs
+1	7	8	6	2	4	
+
+An optimal sequence
+3	5	1	7	8	6	2	4	
+
+The jobs pj
+27	42	41	45	8	14	22	42	
+
+The jobs idj
+196	207	54	114	159	160	167	176	
+
+The jobs Cj
+27	69	110	155	163	177	199	241	
+
+The jobs iYj
+27	42	0	4	4	0	0	0	
+
+FE Total Cost = 77
+
+
+_________________________________________ Set = 46 _________________________________________
+
+
+The jobs pj
+30	29	36	31	26	44	37	42	
+The jobs dj
+295	201	99	319	283	147	66	158	
+
+======================= Full enumeration ===========================
+
+
+
+The fully/partially early jobs
+1	4	5	
+
+The fully late jobs
+7	3	6	2	8	
+
+
+FE solution
+__________________________
+
+
+
+The fully Early jobs
+1	4	5	
+
+The fully/patially Late jobs
+7	3	6	2	8	
+
+An optimal sequence
+1	4	5	7	3	6	2	8	
+
+The jobs pj
+30	31	26	37	36	44	29	42	
+
+The jobs idj
+295	319	283	66	99	147	201	158	
+
+The jobs Cj
+30	61	87	124	160	204	233	275	
+
+The jobs iYj
+30	31	26	0	0	0	0	0	
+
+FE Total Cost = 87
+
+
+_________________________________________ Set = 47 _________________________________________
+
+
+The jobs pj
+40	39	36	24	42	38	13	8	
+The jobs dj
+118	176	128	86	46	123	191	16	
+
+======================= Full enumeration ===========================
+
+
+
+The fully/partially early jobs
+2	1	
+
+The fully late jobs
+8	5	4	3	6	7	
+
+
+FE solution
+__________________________
+
+
+
+The fully Early jobs
+2	
+
+The fully/patially Late jobs
+8	5	4	1	3	6	7	
+
+An optimal sequence
+2	8	5	4	1	3	6	7	
+
+The jobs pj
+39	8	42	24	40	36	38	13	
+
+The jobs idj
+176	16	46	86	118	128	123	191	
+
+The jobs Cj
+39	47	89	113	153	189	227	240	
+
+The jobs iYj
+39	0	0	0	5	0	0	0	
+
+FE Total Cost = 44
+
+
+_________________________________________ Set = 48 _________________________________________
+
+
+The jobs pj
+15	10	25	6	23	13	49	38	
+The jobs dj
+200	67	85	239	217	89	54	96	
+
+======================= Full enumeration ===========================
+
+
+
+The fully/partially early jobs
+1	2	4	5	
+
+The fully late jobs
+7	3	6	8	
+
+
+FE solution
+__________________________
+
+
+
+The fully Early jobs
+1	2	4	5	
+
+The fully/patially Late jobs
+7	3	6	8	
+
+An optimal sequence
+1	2	4	5	7	3	6	8	
+
+The jobs pj
+15	10	6	23	49	25	13	38	
+
+The jobs idj
+200	67	239	217	54	85	89	96	
+
+The jobs Cj
+15	25	31	54	103	128	141	179	
+
+The jobs iYj
+15	10	6	23	0	0	0	0	
+
+FE Total Cost = 54
+
+
+_________________________________________ Set = 49 _________________________________________
+
+
+The jobs pj
+23	18	7	34	37	18	27	42	
+The jobs dj
+213	311	310	247	283	239	246	231	
+
+======================= Full enumeration ===========================
+
+
+
+The fully/partially early jobs
+1	2	3	4	5	6	7	8	
+
+The fully late jobs
+
+
+
+FE solution
+__________________________
+
+
+
+The fully Early jobs
+1	2	3	4	5	6	7	8	
+
+The fully/patially Late jobs
+
+
+An optimal sequence
+1	2	3	4	5	6	7	8	
+
+The jobs pj
+23	18	7	34	37	18	27	42	
+
+The jobs idj
+213	311	310	247	283	239	246	231	
+
+The jobs Cj
+23	41	48	82	119	137	164	206	
+
+The jobs iYj
+23	18	7	34	37	18	27	42	
+
+FE Total Cost = 206
+
+
+_________________________________________ Set = 50 _________________________________________
+
+
+The jobs pj
+41	16	41	43	30	30	41	49	
+The jobs dj
+141	84	124	82	133	195	186	254	
+
+======================= Full enumeration ===========================
+
+
+
+The fully/partially early jobs
+5	8	4	
+
+The fully late jobs
+2	3	1	6	7	
+
+
+FE solution
+__________________________
+
+
+
+The fully Early jobs
+5	8	
+
+The fully/patially Late jobs
+4	2	3	1	6	7	
+
+An optimal sequence
+5	8	4	2	3	1	6	7	
+
+The jobs pj
+30	49	43	16	41	41	30	41	
+
+The jobs idj
+133	254	82	84	124	141	195	186	
+
+The jobs Cj
+30	79	122	138	179	220	250	291	
+
+The jobs iYj
+30	49	3	0	0	0	0	0	
+
+FE Total Cost = 82
+
+
+
+
+
+Worst case running time 0.000 msec
+
+Average running time 0.000 msec

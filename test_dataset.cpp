@@ -14,10 +14,14 @@
 using namespace std;
 using namespace std::filesystem;
 
-
-int main()
+int main(int argc, char const *argv[])
 {
-    const std::filesystem::path data{"data"};
+    if(argc < 2)
+    {
+        argv[1] = "data";
+        argc = 2;
+    }
+    const std::filesystem::path data{argv[1]};
     vector<double> times;
 
     for (auto const &dir_entry : directory_iterator{data})
