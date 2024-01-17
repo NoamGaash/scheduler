@@ -90,7 +90,6 @@ public:
             job.display();
             os << " ";
         }
-        os << endl;
         return os;
     }
 };

@@ -4,6 +4,7 @@
 #include "utils/timing.cpp"
 #include "algo/naive_solution.cpp"
 #include "algo/dp_solution.cpp"
+#include "algo/dp_backtracking_solution.cpp"
 #include <vector>
 #include <numeric>
 #include <functional>
@@ -21,8 +22,8 @@ void process_example_file()
     double time = time_measure([&d, &result]()
                                {
         // d.jobs = naive_solution(d, d.jobs.size());
-        result = dp_solution(d); });
-
+        result = dp_backtrack_solution(d); });
+    cout << d << endl;
     cout << "Time: " << time << endl;
     cout << "Cost after algo: " << result << endl;
     // cout << d << endl;
