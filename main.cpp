@@ -29,6 +29,24 @@ void process_example_file()
     // cout << d << endl;
 }
 
+void process_example_rejection_file()
+{
+    string filename = "input_with_rejection.csv";
+    RejectableData d(readCSV(filename));
+
+    cout << "Cost before algo: " << d.cost() << endl;
+    d.sort_by_descending_due_to();
+    double result = 0;
+    double time = time_measure([&d, &result]()
+                               {
+        // d.jobs = naive_solution(d, d.jobs.size());
+        result = dp_solution(d); });
+    cout << d << endl;
+    cout << "Time: " << time << endl;
+    cout << "Cost after algo (with rejections): " << result << endl;
+    // cout << d << endl;
+}
+
 void process_generated_data()
 {
     int njobs = 200;
@@ -53,7 +71,8 @@ int main()
 {
     srand(time(NULL));
     process_example_file();
-    process_generated_data();
+    process_example_rejection_file();
+    // process_generated_data();
 
     return 0;
 }

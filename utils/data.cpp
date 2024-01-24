@@ -42,7 +42,7 @@ public:
 
     int cost(int start) const
     {
-        return min(processing_time, max(0, due_to - start)) + recection_cost;
+        return min(processing_time, max(0, due_to - start));
     }
 
     void display() const
@@ -119,7 +119,9 @@ public:
 class RejectableData : public Data
 {
 public:
-    RejectableData(std::vector<std::vector<int>> data)
+    std::vector<RejectableJob> jobs;
+
+    RejectableData(std::vector<std::vector<int>> data): Data(data)
     {
         for (const auto &row : data)
         {
@@ -127,30 +129,39 @@ public:
         }
     }
 
-    RejectableData(int njobs, int p_max, float alpha, float beta) {
-        int *p = new int[njobs];
-        int P = 0;
+    RejectableData(int njobs, int p_max, float alpha, float beta) : Data(njobs, p_max, alpha)
+    {
         for (int i = 0; i < njobs; i++)
         {
-            p[i] = rand() % p_max + 1;
-            P += p[i];
+            jobs[i].recection_cost = rand() % ((int)(beta * jobs[i].processing_time) + 1);
         }
-        for (int i = 0; i < njobs; i++)
-        {
-            int d = rand() % (int)(alpha * P) + 1;
-            int r = rand() % (int)(beta * p[i]) + 1;
-            jobs.push_back(RejectableJob(i + 1, p[i], d, r));
-        }
-        delete[] p;
     }
 
-    int cost(const std::vector<Job> &solution) const
+    int cost() const
     {
         int cost = 0, time = 0;
-        for (const auto &job : solution)
+        for (const auto &job : jobs)
         {
             cost += job.cost(time);
             time += job.processing_time;
+        }
+        return cost;
+    }
+
+    int cost(const std::vector<bool> &isRejected) const
+    {
+        int cost = 0, time = 0;
+        for (int i = 0; i < jobs.size(); i++)
+        {
+            if (isRejected[i])
+            {
+                cost += jobs[i].recection_cost;
+            }
+            else
+            {
+                cost += jobs[i].cost(time);
+                time += jobs[i].processing_time;
+            }
         }
         return cost;
     }
