@@ -31,3 +31,4 @@ vector<Job> naive_solution(Data& d, int j, vector<Job> start = {}, vector<Job> e
 
     return solution1_cost > solution2_cost ? solution2 : solution1;
 }
+

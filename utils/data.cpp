@@ -82,6 +82,16 @@ public:
         delete[] p;
     }
 
+    int P() const
+    {
+        int P = 0;
+        for (const auto &job : jobs)
+        {
+            P += job.processing_time;
+        }
+        return P;
+    }
+
     void display() const
     {
         std::cout << this;
@@ -137,6 +147,16 @@ public:
         }
     }
 
+    int R() const
+    {
+        int R = 0;
+        for (const auto &job : jobs)
+        {
+            R += job.recection_cost;
+        }
+        return R;
+    }
+
     int cost() const
     {
         int cost = 0, time = 0;
@@ -165,6 +185,7 @@ public:
         }
         return cost;
     }
+
     // cout
     friend ostream &operator<<(ostream &os, const RejectableData &d)
     {
