@@ -6,7 +6,7 @@
 
 int dp_solution(Data &data, bool verbose = false)
 {
-    data.sort_by_descending_due_to();
+    data.sort_by_ascending_due_to();
     int n = data.jobs.size();
     int P = data.P();
 
@@ -15,23 +15,23 @@ int dp_solution(Data &data, bool verbose = false)
     // initialize dp table
     int **f = zeroes(dp_rows, dp_cols);
 
-    for (int j = n - 2; j >= -1; j--)
+    for (int j = 1; j <= n; j++)
     {
-        const auto &p = data.jobs[j + 1].processing_time;
-        const auto &d = data.jobs[j + 1].due_to;
+        const auto &p = data.jobs[j-1].processing_time;
+        const auto &d = data.jobs[j-1].due_to;
         for (int l = P-p; l >= 0; l--)
         {
 
             if (d >= P - l)
             {
-                f[j + 1][l] = p + f[j + 2][l]; // forward will be f[j - 1][l];
+                f[j][l] = p + f[j - 1 ][l]; // forward will be f[j - 1][l];
             }
             else
             {
                 const auto &s = (P - l - p); // start time of job j+1 if it added to the late jobs
-                f[j + 1][l] = min(
-                    p + f[j + 2][l],
-                    min(max(0, d - s), p) + f[j + 2][l + p] // forward will be f[j - 1][l - p]
+                f[j][l] = min(
+                    p + f[j - 1][l],
+                    min(max(0, d - s), p) + f[j - 1][l + p] // forward will be f[j - 1][l - p]
                 );
             }
         }
@@ -43,7 +43,7 @@ int dp_solution(Data &data, bool verbose = false)
         print_array(f, dp_rows, dp_cols);
     }
 
-    const auto result = f[0][0];
+    const auto result = f[n][0];
     delete_array(f, dp_rows);
     return result;
 }

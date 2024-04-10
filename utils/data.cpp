@@ -103,6 +103,12 @@ public:
                   { return a.due_to > b.due_to; });
     }
 
+    void sort_by_ascending_due_to()
+    {
+        std::sort(jobs.begin(), jobs.end(), [](const Job &a, const Job &b)
+                  { return a.due_to < b.due_to; });
+    }
+
     int cost(const std::vector<Job> &solution) const
     {
         int cost = 0, time = 0;
