@@ -15,23 +15,23 @@ int dp_solution(Data &data, bool verbose = false)
     // initialize dp table
     int **f = zeroes(dp_rows, dp_cols);
 
-    for (int j = 1; j <= n; j++)
+    for (int j = 0; j < n; j++)
     {
-        const auto &p = data.jobs[j-1].processing_time;
-        const auto &d = data.jobs[j-1].due_to;
+        const auto &p = data.jobs[j].processing_time;
+        const auto &d = data.jobs[j].due_to;
         for (int l = 0; l <= P-p; l++)
         {
 
             if (d >= P - l)
             {
-                f[j][l] = p + f[j - 1 ][l];
+                f[j+1][l] = p + f[j][l];
             }
             else
             {
                 const auto &s = P - l - p; // start time of job j+1 if it added to the late jobs
-                f[j][l] = min(
-                    p + f[j - 1][l],
-                    min(max(0, d - s), p) + f[j - 1][l + p]
+                f[j+1][l] = min(
+                    p + f[j][l],
+                    min(max(0, d - s), p) + f[j][l + p]
                 );
             }
         }
