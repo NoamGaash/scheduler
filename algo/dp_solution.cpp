@@ -19,19 +19,19 @@ int dp_solution(Data &data, bool verbose = false)
     {
         const auto &p = data.jobs[j-1].processing_time;
         const auto &d = data.jobs[j-1].due_to;
-        for (int l = P-p; l >= 0; l--)
+        for (int l = 0; l <= P-p; l++)
         {
 
             if (d >= P - l)
             {
-                f[j][l] = p + f[j - 1 ][l]; // forward will be f[j - 1][l];
+                f[j][l] = p + f[j - 1 ][l];
             }
             else
             {
-                const auto &s = (P - l - p); // start time of job j+1 if it added to the late jobs
+                const auto &s = P - l - p; // start time of job j+1 if it added to the late jobs
                 f[j][l] = min(
                     p + f[j - 1][l],
-                    min(max(0, d - s), p) + f[j - 1][l + p] // forward will be f[j - 1][l - p]
+                    min(max(0, d - s), p) + f[j - 1][l + p]
                 );
             }
         }
