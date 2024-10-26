@@ -14,4 +14,5 @@ jobs:
               run: g++ test_dataset.cpp -o test_dataset; ./test_dataset parse_baruch_dataset/data
             - name: run performance script
               run: g++ test_performance.cpp -o test_performance; ./test_performance
-
+            - name: test with rejection
+              run: g++ -g test_dataset_with_rejection.cpp; ./a.out data_rejection

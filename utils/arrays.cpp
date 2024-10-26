@@ -22,12 +22,12 @@ int ** zeroes(int rows, int cols)
     return f;
 }
 
-int *** zeroes(int rows, int cols, int depth)
+int *** zeroes(int depth, int rows, int cols)
 {
-    int ***f = new int **[rows];
-    for (int i = 0; i < rows; i++)
+    int ***f = new int **[depth];
+    for (int i = 0; i < depth; i++)
     {
-        f[i] = zeroes(cols, depth);
+        f[i] = zeroes(rows, cols);
     }
     return f;
 }
@@ -74,9 +74,9 @@ void print_array(int **f, int rows, int cols)
 
 void print_array(int ***f, int rows, int cols, int depth)
 {
-    for (int i = 0; i < rows; i++)
+    for (int i = 0; i < depth; i++)
     {
         cout << "Layer " << i << endl;
-        print_array(f[i], cols, depth);
+        print_array(f[i], rows, cols);
     }
 }

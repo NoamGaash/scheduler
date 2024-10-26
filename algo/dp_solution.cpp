@@ -17,23 +17,18 @@ int dp_solution(Data &data, bool verbose = false)
 
     for (int j = 0; j < n; j++)
     {
+        // we have scheduled job 0 to j (1-indexed), now we should schedule job j+1
         const auto &p = data.jobs[j].processing_time;
         const auto &d = data.jobs[j].due_to;
         for (int l = 0; l <= P-p; l++)
         {
-
-            if (d >= P - l)
-            {
-                f[j+1][l] = p + f[j][l];
-            }
-            else
-            {
-                const auto &s = P - l - p; // start time of job j+1 if it added to the late jobs
-                f[j+1][l] = min(
-                    p + f[j][l],
-                    min(max(0, d - s), p) + f[j][l + p]
-                );
-            }
+            // f_j(l) is the optimal early work can be achived by scheduling jobs 1...j
+            // given that the rest of the n-j jobs have been scheduled and the total p of scheduled late jobs is l
+            const auto &s = P - l - p; // start time of job j+1 if it added to the late jobs
+            f[j+1][l] = min(
+                p + f[j][l],
+                min(max(0, d - s), p) + f[j][l + p]
+            );
         }
     }
 
@@ -49,7 +44,11 @@ int dp_solution(Data &data, bool verbose = false)
 }
 
 /**
- * calculate the optimal cost of total early work (for accepted jobs) and rejection cost (for rejected jobs)
+ * In this function every job now has a new property, e, which represents the cost of rejecting the job.
+ * This function introduces a third state variable, r, that represents the total processing time of the regected jobs.
+ * 
+ * 
+ * calculate the minimal sum cost of total early work (for accepted jobs) and total rejection cost (for rejected jobs)
 */
 int dp_solution(RejectableData &data, bool verbose = false)
 {
@@ -63,40 +62,31 @@ int dp_solution(RejectableData &data, bool verbose = false)
 
     int dp_rows = n + 1, dp_cols = P+1, dp_depth =P+1;
 
-    int ***f = zeroes(dp_depth, dp_cols, dp_rows);
+    int ***f = zeroes(dp_rows, dp_cols, dp_depth * 2);
 
-    for(int layer = n-1; layer >= 0; layer--)
+    for (int j = 0; j < n; j++)
     {
-        for (int j = n - 2; j >= -1; j--)
-        {
-            const auto &p = data.jobs[j].processing_time;
-            const auto &d = data.jobs[j].due_to;
-            const auto &e = data.jobs[j].recection_cost;
+        const auto &p = data.jobs[j].processing_time;
+        const auto &d = data.jobs[j].due_to;
+        const auto &e = data.jobs[j].recection_cost;
 
+        for(int r = 0; r <= P-p; r++)
+        {
             /**
-             * for each job, f[layer][j][l] is the minimum cost of processing the jobs j, j+1, ..., n-1
+             * for each job, f[r][j][l] is the minimum cost of processing the jobs j, j+1, ..., n-1
              * under the assumption that the sum of all late jobs' processing times in the range [1, j] is l
-             * and the total processing time of the rejected jobs in the range [1, j] is layer
+             * and the total processing time of the rejected jobs in the range [1, j] is r
             */
-            for (int l = P-p; l >= 0; l--) // the `-p` is because the current job isn't yet added to the set of late jobs
+            for (int l = 0; l <= P-p-r; l++) // the `-p` is because the current job isn't yet added to the set of late jobs
             {
-                if (d >= P - l)
-                {
-                     // if job j ends before its due date, then it will be fully early and the entire processing time will be added to cost
-                    f[layer][j + 1][l] = p + f[layer][j + 2][l];
-                }
-                else
-                {
-                    const auto &s = (P - l - p); // start time of job j+1 if it added to the late jobs
-                    f[layer][j + 1][l] = min(
-                            p + f[layer][j + 2][l],
-                            min(max(0, d - s), p) + f[layer][j + 2][l + p]
-                        );
-                }
-                // f[layer][j + 1][l] = min(
-                //     f[layer][j + 1][l],
-                //     f[layer+1][j + 2][l] + data.jobs[j+2].recection_cost
-                // );
+                const auto &s = (P - l - r - p); // start time of job j+1 if it added to the late jobs
+                f[j + 1][l][r] = min(
+                    p + f[j][l][r], // fully early
+                    min(
+                        min(max(0, d - s), p) + f[j][l + p][r], // partially late
+                        e + f[j][l][r + p] // reject
+                    )
+                );
             }
         }
     }
@@ -107,9 +97,9 @@ int dp_solution(RejectableData &data, bool verbose = false)
         print_array(f[0], dp_cols, dp_depth);
     }
 
-    const auto result = f[0][0][0];
+    const auto result = f[n][0][0];
     cout << "!!! " << result << endl;
-    delete_array(f, dp_rows, dp_cols);
+    delete_array(f, dp_rows, dp_depth);
     return result;
 }
 
