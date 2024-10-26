@@ -20,14 +20,12 @@ int dp_solution(Data &data, bool verbose = false)
         // we have scheduled job 0 to j (1-indexed), now we should schedule job j+1
         const auto &p = data.jobs[j].processing_time;
         const auto &d = data.jobs[j].due_to;
-        for (int l = 0; l <= P-p; l++)
+        for (int s = 0; s <= P - p; s++)
         {
-            // f_j(l) is the optimal early work can be achived by scheduling jobs 1...j
-            // given that the rest of the n-j jobs have been scheduled and the total p of scheduled late jobs is l
-            const auto &s = P - l - p; // start time of job j+1 if it added to the late jobs
-            f[j+1][l] = min(
-                p + f[j][l],
-                min(max(0, d - s), p) + f[j][l + p]
+            const int c = s + p;
+            f[j+1][c] = min(
+                p + f[j][c],
+                min(max(0, d - s), p) + f[j][s]
             );
         }
     }
@@ -38,7 +36,7 @@ int dp_solution(Data &data, bool verbose = false)
         print_array(f, dp_rows, dp_cols);
     }
 
-    const auto result = f[n][0];
+    const auto result = f[n][P];
     delete_array(f, dp_rows);
     return result;
 }
@@ -55,7 +53,7 @@ int dp_solution(RejectableData &data, bool verbose = false)
     /**
      * we sort the jobs by descending due_to, because we want to process the late jobs first
     */
-    data.sort_by_descending_due_to();
+    data.sort_by_ascending_due_to();
     int n = data.jobs.size();
     int P = data.P();
     int R = data.R();
