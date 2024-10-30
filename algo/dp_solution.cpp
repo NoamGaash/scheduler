@@ -61,7 +61,7 @@ int dp_solution(RejectableData &data, bool verbose = false)
 
     int dp_rows = n + 1, dp_cols = P+1, dp_depth =P+1;
 
-    int ***f = zeroes(dp_rows, dp_cols, min(R, dp_depth * 2));
+    int ***f = zeroes(dp_rows, dp_cols, max(R+1, dp_depth));
 
     for (int j = 0; j < n; j++)
     {
@@ -81,12 +81,10 @@ int dp_solution(RejectableData &data, bool verbose = false)
                 const int c = s + p;
                 f[j + 1][c][r] = min(
                     p + f[j][c][r], // fully early
-                    min(max(0, d - s), p) + f[j][s][r] // partially late
-
-                    // min(
-                    //     min(max(0, d - s), p) + f[j][s][r], // partially late
-                    //     e + f[j][s][r + p] // reject
-                    // )
+                    min(
+                        min(max(0, d - s), p) + f[j][s][r], // partially late
+                        e + f[j][s][r + p] // reject
+                    )
                 );
             }
         }
