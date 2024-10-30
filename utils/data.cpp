@@ -13,43 +13,38 @@ public:
     int due_to;
 
     Job(int id, int processing_time, int due_to)
-    {
-        this->id = id;
-        this->processing_time = processing_time;
-        this->due_to = due_to;
-    }
+        : id(id), processing_time(processing_time), due_to(due_to) {}
+    virtual ~Job() = default;
 
-    void display() const
-    {
-        std::cout << "(id=" << id << " p=" << processing_time << ", d=" << due_to << ")";
-    }
-
-    int cost(int start) const
+    virtual int cost(int start) const
     {
         return min(processing_time, max(0, due_to - start));
+    }
+
+    virtual void display() const
+    {
+        cout << "(id=" << id << " p=" << processing_time << ", d=" << due_to << ")";
     }
 };
 
 class RejectableJob : public Job
 {
 public:
-    int recection_cost;
+    int rejection_cost;
 
-    RejectableJob(int id, int processing_time, int due_to, int recection_cost) : Job(id, processing_time, due_to)
+    RejectableJob(int id, int processing_time, int due_to, int rejection_cost)
+        : Job(id, processing_time, due_to), rejection_cost(rejection_cost) {}
+
+    int cost(int start) const override
     {
-        this->recection_cost = recection_cost;
+        return Job::cost(start) + rejection_cost;
     }
 
-    int cost(int start) const
+    void display() const override
     {
-        return min(processing_time, max(0, due_to - start));
+        std::cout << "(id=" << id << " p=" << processing_time << ", d=" << due_to
+                  << ", r=" << rejection_cost << ")";
     }
-
-    void display() const
-    {
-        std::cout << "(id=" << id << " p=" << processing_time << ", d=" << due_to << ", r=" << recection_cost << ")";
-    }
-    
 };
 
 class Data
@@ -149,7 +144,7 @@ public:
     {
         for (int i = 0; i < njobs; i++)
         {
-            jobs[i].recection_cost = rand() % ((int)(beta * jobs[i].processing_time) + 1);
+            jobs[i].rejection_cost = rand() % ((int)(beta * jobs[i].processing_time) + 1);
         }
     }
 
@@ -158,9 +153,20 @@ public:
         int R = 0;
         for (const auto &job : jobs)
         {
-            R += job.recection_cost;
+            R += job.rejection_cost;
         }
         return R;
+    }
+    void sort_by_descending_due_to()
+    {
+        std::sort(jobs.begin(), jobs.end(), [](const Job &a, const Job &b)
+                  { return a.due_to > b.due_to; });
+    }
+
+    void sort_by_ascending_due_to()
+    {
+        std::sort(jobs.begin(), jobs.end(), [](const Job &a, const Job &b)
+                  { return a.due_to < b.due_to; });
     }
 
     int cost() const
@@ -181,7 +187,7 @@ public:
         {
             if (isRejected[i])
             {
-                cost += jobs[i].recection_cost;
+                cost += jobs[i].rejection_cost;
             }
             else
             {

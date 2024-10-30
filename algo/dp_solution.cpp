@@ -20,6 +20,7 @@ int dp_solution(Data &data, bool verbose = false)
         // we have scheduled job 0 to j (1-indexed), now we should schedule job j+1
         const auto &p = data.jobs[j].processing_time;
         const auto &d = data.jobs[j].due_to;
+        
         for (int s = 0; s <= P - p; s++)
         {
             const int c = s + p;
@@ -60,13 +61,13 @@ int dp_solution(RejectableData &data, bool verbose = false)
 
     int dp_rows = n + 1, dp_cols = P+1, dp_depth =P+1;
 
-    int ***f = zeroes(dp_rows, dp_cols, dp_depth * 2);
+    int ***f = zeroes(dp_rows, dp_cols, min(R, dp_depth * 2));
 
     for (int j = 0; j < n; j++)
     {
         const auto &p = data.jobs[j].processing_time;
         const auto &d = data.jobs[j].due_to;
-        const auto &e = data.jobs[j].recection_cost;
+        const auto &e = data.jobs[j].rejection_cost;
 
         for(int r = 0; r <= P-p; r++)
         {
@@ -75,15 +76,17 @@ int dp_solution(RejectableData &data, bool verbose = false)
              * under the assumption that the sum of all late jobs' processing times in the range [1, j] is l
              * and the total processing time of the rejected jobs in the range [1, j] is r
             */
-            for (int l = 0; l <= P-p-r; l++) // the `-p` is because the current job isn't yet added to the set of late jobs
+            for (int s = 0; s <= P - p-r; s++) // the `-p` is because the current job isn't yet added to the set of late jobs
             {
-                const auto &s = (P - l - r - p); // start time of job j+1 if it added to the late jobs
-                f[j + 1][l][r] = min(
-                    p + f[j][l][r], // fully early
-                    min(
-                        min(max(0, d - s), p) + f[j][l + p][r], // partially late
-                        e + f[j][l][r + p] // reject
-                    )
+                const int c = s + p;
+                f[j + 1][c][r] = min(
+                    p + f[j][c][r], // fully early
+                    min(max(0, d - s), p) + f[j][s][r] // partially late
+
+                    // min(
+                    //     min(max(0, d - s), p) + f[j][s][r], // partially late
+                    //     e + f[j][s][r + p] // reject
+                    // )
                 );
             }
         }
@@ -95,7 +98,7 @@ int dp_solution(RejectableData &data, bool verbose = false)
         print_array(f[0], dp_cols, dp_depth);
     }
 
-    const auto result = f[n][0][0];
+    const auto result = f[n][P][0];
     cout << "!!! " << result << endl;
     delete_array(f, dp_rows, dp_depth);
     return result;
