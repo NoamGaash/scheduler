@@ -127,12 +127,22 @@ public:
     }
 };
 
-class RejectableData : public Data
+class RejectableData
 {
 public:
     std::vector<RejectableJob> jobs;
 
-    RejectableData(std::vector<std::vector<int>> data): Data(data)
+    int P() const
+    {
+        int P = 0;
+        for (const auto &job : jobs)
+        {
+            P += job.processing_time;
+        }
+        return P;
+    }
+
+    RejectableData(std::vector<std::vector<int>> data)
     {
         for (const auto &row : data)
         {
@@ -140,12 +150,22 @@ public:
         }
     }
 
-    RejectableData(int njobs, int p_max, float alpha, float beta) : Data(njobs, p_max, alpha)
+    RejectableData(int njobs, int p_max, float alpha, float beta)
     {
+        int *p = new int[njobs];
+        int P = 0;
         for (int i = 0; i < njobs; i++)
         {
-            jobs[i].rejection_cost = rand() % ((int)(beta * jobs[i].processing_time) + 1);
+            p[i] = rand() % p_max + 1;
+            P += p[i];
         }
+        for (int i = 0; i < njobs; i++)
+        {
+            int d = rand() % (int)(alpha * P) + 1;
+            int r = rand() % (int)(beta * P) + 1;
+            jobs.push_back(RejectableJob(i + 1, p[i], d, r));
+        }
+        delete[] p;
     }
 
     int R() const

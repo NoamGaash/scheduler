@@ -97,7 +97,6 @@ int dp_solution(RejectableData &data, bool verbose = false)
     }
 
     const auto result = f[n][P][0];
-    cout << "!!! " << result << endl;
     delete_array(f, dp_rows, dp_depth);
     return result;
 }
