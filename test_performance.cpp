@@ -9,8 +9,8 @@
 
 int main()
 {
-    const bool withRejection = false;
-    const bool withoutRejection = true;
+    const bool withoutRejection = false;
+    const bool withRejection = true;
 
     if(withoutRejection) {
         cout << "w/o rejection:" << endl;
@@ -50,10 +50,20 @@ int main()
                         for (int instance = 0; instance < 25; instance++)
                         {
                             RejectableData d(n, p_max, alpha, beta);
-                            double time = time_measure([&d]()
-                                                        { dp_solution(d); });
+                            int result;
+                            double time = time_measure([&d, &result]()
+                                                        { result = dp_solution(d); });
                             times.push_back(time);
-
+                            
+                            // make sure the result is smaller than the result without rejection
+                            Data no_rejection(d);
+                            if(!result) {
+                                cout << "Error: result is 0" << endl;
+                            }
+                            if (result > dp_solution(no_rejection, false))
+                            {
+                                cout << "Error: " << result << " > " << dp_solution(no_rejection, false) << endl;
+                            }
                         }
                         cout << n << "," << p_max << "," << alpha << "," << beta << "," << *max_element(times.begin(), times.end()) << "," << accumulate(times.begin(), times.end(), 0.0) / times.size() << "," << stddev(times.begin(), times.end()) << endl;
                     }

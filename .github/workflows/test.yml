@@ -39,4 +39,4 @@ jobs:
       steps:
           - uses: actions/checkout@v2
           - name: test with rejection
-            run: g++ -g test_dataset_with_rejection.cpp; ./a.out data_rejection
+            run: g++ -g test_dataset_with_rejection.cpp -o test_dataset_with_rejection; ./test_dataset_with_rejection data_rejection
