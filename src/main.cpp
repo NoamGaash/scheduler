@@ -13,7 +13,7 @@ using namespace std;
 
 void process_example_file()
 {
-    string filename = "input.csv";
+    string filename = "datasets/input.csv";
     JobCollection d(readCSV(filename));
 
     cout << "Cost before algo: " << d.cost(d.jobs) << endl;
@@ -31,7 +31,7 @@ void process_example_file()
 
 void process_example_rejection_file()
 {
-    string filename = "input_with_rejection.csv";
+    string filename = "datasets/input_with_rejection.csv";
     RejectableJobCollection d(readCSV(filename));
 
     cout << "Cost before algo: " << d.cost() << endl;

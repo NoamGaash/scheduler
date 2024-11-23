@@ -10,7 +10,7 @@ std::vector<std::vector<int>> readCSV(const std::string& filename) {
     
     if (!file.is_open()) {
         std::cerr << "Error: Unable to open file " << filename << std::endl;
-        return result;
+        throw std::runtime_error("Unable to open file: " + filename);
     }
 
     std::string line, cell;
