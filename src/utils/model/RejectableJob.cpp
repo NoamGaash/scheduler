@@ -13,6 +13,12 @@ int RejectableJob::cost(int start) const
 
 void RejectableJob::display() const
 {
-    cout << "(id=" << id << " p=" << processing_time << ", d=" << due_to
-         << ", r=" << rejection_cost << ")";
+    cout << *this;
+}
+
+ostream &operator<<(ostream &os, const RejectableJob &job)
+{
+    os << "(id=" << job.id << " p=" << job.processing_time << ", d=" << job.due_to
+       << ", r=" << job.rejection_cost << ")";
+    return os;
 }

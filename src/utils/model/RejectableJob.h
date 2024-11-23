@@ -14,6 +14,8 @@ public:
     int cost(int start) const override;
 
     void display() const override;
+
+    friend ostream &operator<<(ostream &os, const RejectableJob &job);
 };
 
 #endif // REJECTABLE_JOB_H
