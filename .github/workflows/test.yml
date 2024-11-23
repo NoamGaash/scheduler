@@ -8,7 +8,7 @@ jobs:
     timeout-minutes: 10
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       - name: Install Dependencies
         run: |
@@ -27,12 +27,19 @@ jobs:
           cd build
           ctest -V
 
-  # Run main executable
-  test_main:
-    timeout-minutes: 5
+  # Run specific tests or executables
+  test_job_template:
     runs-on: ubuntu-latest
+    timeout-minutes: 5
+    strategy:
+      matrix:
+        command:
+          - ./src/main
+          - ./src/test_dataset
+          - ./src/test_dataset_with_rejection datasets/data_rejection
+          - ./src/test_performance
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       - name: Install Dependencies
         run: |
@@ -46,79 +53,7 @@ jobs:
           cmake ..
           cmake --build . -- -j$(nproc)
 
-      - name: Run Main Script
+      - name: Run Specific Test
         run: |
           cd build
-          ./src/main
-
-  # Run dataset test
-  test_dataset:
-    timeout-minutes: 5
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-
-      - name: Install Dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y cmake g++
-
-      - name: Configure and Build
-        run: |
-          mkdir -p build
-          cd build
-          cmake ..
-          cmake --build . -- -j$(nproc)
-
-      - name: Run Dataset Test
-        run: |
-          cd build
-          ./src/test_dataset
-
-  # Run dataset with rejection test
-  test_rejection:
-    timeout-minutes: 5
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-
-      - name: Install Dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y cmake g++
-
-      - name: Configure and Build
-        run: |
-          mkdir -p build
-          cd build
-          cmake ..
-          cmake --build . -- -j$(nproc)
-
-      - name: Run Rejection Test
-        run: |
-          cd build
-          ./src/test_dataset_with_rejection datasets/data_rejection
-
-  # Run performance test
-  test_performance:
-    timeout-minutes: 5
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-
-      - name: Install Dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y cmake g++
-
-      - name: Configure and Build
-        run: |
-          mkdir -p build
-          cd build
-          cmake ..
-          cmake --build . -- -j$(nproc)
-
-      - name: Run Performance Test
-        run: |
-          cd build
-          ./src/test_performance
+          ${{ matrix.command }}
