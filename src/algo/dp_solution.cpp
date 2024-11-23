@@ -6,7 +6,7 @@
 #include "../utils/data.cpp"
 #include "../utils/arrays.cpp"
 
-int dp_solution(Data &data, bool verbose = false, std::function<void(int **, vector<Job>, int)> backtrack = nullptr)
+int dp_solution(JobCollection &data, bool verbose = false, std::function<void(int **, vector<Job>, int)> backtrack = nullptr)
 {
     data.sort_by_ascending_due_to();
     int n = data.jobs.size();
@@ -55,7 +55,7 @@ int dp_solution(Data &data, bool verbose = false, std::function<void(int **, vec
  * 
  * calculate the minimal sum cost of total early work (for accepted jobs) and total rejection cost (for rejected jobs)
 */
-int dp_solution(RejectableData &data, bool verbose = false)
+int dp_solution(RejectableJobCollection &data, bool verbose = false)
 {
     /**
      * we sort the jobs by descending due_to, because we want to process the late jobs first

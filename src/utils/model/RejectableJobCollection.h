@@ -6,13 +6,13 @@
 #include <algorithm>
 #include "RejectableJob.h"
 
-class RejectableData
+class RejectableJobCollection
 {
 public:
     std::vector<RejectableJob> jobs;
 
-    RejectableData(std::vector<std::vector<int>> data);
-    RejectableData(int njobs, int p_max, float alpha, float beta);
+    RejectableJobCollection(std::vector<std::vector<int>> data);
+    RejectableJobCollection(int njobs, int p_max, float alpha, float beta);
 
     int P() const;
     int R() const;
@@ -23,7 +23,7 @@ public:
     int cost() const;
     int cost(const std::vector<bool> &isRejected) const;
 
-    friend std::ostream &operator<<(std::ostream &os, const RejectableData &d);
+    friend std::ostream &operator<<(std::ostream &os, const RejectableJobCollection &d);
 };
 
 #endif // REJECTABLE_DATA_H

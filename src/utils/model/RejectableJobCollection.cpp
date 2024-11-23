@@ -1,6 +1,6 @@
-#include "RejectableData.h"
+#include "RejectableJobCollection.h"
 
-RejectableData::RejectableData(std::vector<std::vector<int>> data)
+RejectableJobCollection::RejectableJobCollection(std::vector<std::vector<int>> data)
 {
     for (const auto &row : data)
     {
@@ -8,7 +8,7 @@ RejectableData::RejectableData(std::vector<std::vector<int>> data)
     }
 }
 
-RejectableData::RejectableData(int njobs, int p_max, float alpha, float beta)
+RejectableJobCollection::RejectableJobCollection(int njobs, int p_max, float alpha, float beta)
 {
     std::vector<int> p(njobs);
     int P = 0;
@@ -27,7 +27,7 @@ RejectableData::RejectableData(int njobs, int p_max, float alpha, float beta)
     }
 }
 
-int RejectableData::P() const
+int RejectableJobCollection::P() const
 {
     int P = 0;
     for (const auto &job : jobs)
@@ -37,7 +37,7 @@ int RejectableData::P() const
     return P;
 }
 
-int RejectableData::R() const
+int RejectableJobCollection::R() const
 {
     int sum = 0;
     int p = this->P();
@@ -48,19 +48,19 @@ int RejectableData::R() const
     return std::min(sum, p);
 }
 
-void RejectableData::sort_by_descending_due_to()
+void RejectableJobCollection::sort_by_descending_due_to()
 {
     std::sort(jobs.begin(), jobs.end(), [](const Job &a, const Job &b)
               { return a.due_to > b.due_to; });
 }
 
-void RejectableData::sort_by_ascending_due_to()
+void RejectableJobCollection::sort_by_ascending_due_to()
 {
     std::sort(jobs.begin(), jobs.end(), [](const Job &a, const Job &b)
               { return a.due_to < b.due_to; });
 }
 
-int RejectableData::cost() const
+int RejectableJobCollection::cost() const
 {
     int cost = 0, time = 0;
 
@@ -73,7 +73,7 @@ int RejectableData::cost() const
     return cost;
 }
 
-int RejectableData::cost(const std::vector<bool> &isRejected) const
+int RejectableJobCollection::cost(const std::vector<bool> &isRejected) const
 {
     int cost = 0, time = 0;
 
@@ -93,7 +93,7 @@ int RejectableData::cost(const std::vector<bool> &isRejected) const
     return cost;
 }
 
-std::ostream &operator<<(std::ostream &os, const RejectableData &d)
+std::ostream &operator<<(std::ostream &os, const RejectableJobCollection &d)
 {
     os << "Jobs: ";
     for (const auto &job : d.jobs)

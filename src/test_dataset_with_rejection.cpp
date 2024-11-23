@@ -28,7 +28,7 @@ int main(int argc, char const *argv[])
     {
         string input = dir_entry.path().string() + "/input.csv";
         string output = dir_entry.path().string() + "/output.txt";
-        auto d = RejectableData(readCSV(input));
+        auto d = RejectableJobCollection(readCSV(input));
         int result = 0;
         auto time = time_measure([&d, &result]()
                                  { result = dp_solution(d); });

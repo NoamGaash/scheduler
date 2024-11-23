@@ -1,6 +1,6 @@
-#include "Data.h"
+#include "JobCollection.h"
 
-Data::Data(std::vector<std::vector<int>> data)
+JobCollection::JobCollection(std::vector<std::vector<int>> data)
 {
     for (const auto &row : data)
     {
@@ -8,7 +8,7 @@ Data::Data(std::vector<std::vector<int>> data)
     }
 }
 
-Data::Data(int njobs, int p_max, float alpha)
+JobCollection::JobCollection(int njobs, int p_max, float alpha)
 {
     std::vector<int> p(njobs);
     int P = 0;
@@ -26,7 +26,7 @@ Data::Data(int njobs, int p_max, float alpha)
     }
 }
 
-Data::Data(RejectableData rd)
+JobCollection::JobCollection(RejectableJobCollection rd)
 {
     for (const auto &job : rd.jobs)
     {
@@ -34,7 +34,7 @@ Data::Data(RejectableData rd)
     }
 }
 
-int Data::P() const
+int JobCollection::P() const
 {
     int P = 0;
     for (const auto &job : jobs)
@@ -44,24 +44,24 @@ int Data::P() const
     return P;
 }
 
-void Data::display() const
+void JobCollection::display() const
 {
     std::cout << *this;
 }
 
-void Data::sort_by_descending_due_to()
+void JobCollection::sort_by_descending_due_to()
 {
     std::sort(jobs.begin(), jobs.end(), [](const Job &a, const Job &b)
               { return a.due_to > b.due_to; });
 }
 
-void Data::sort_by_ascending_due_to()
+void JobCollection::sort_by_ascending_due_to()
 {
     std::sort(jobs.begin(), jobs.end(), [](const Job &a, const Job &b)
               { return a.due_to < b.due_to; });
 }
 
-int Data::cost(const std::vector<Job> &solution) const
+int JobCollection::cost(const std::vector<Job> &solution) const
 {
     int cost = 0, time = 0;
 
@@ -74,7 +74,7 @@ int Data::cost(const std::vector<Job> &solution) const
     return cost;
 }
 
-std::ostream &operator<<(std::ostream &os, const Data &d)
+std::ostream &operator<<(std::ostream &os, const JobCollection &d)
 {
     os << "Jobs: ";
     for (const auto &job : d.jobs)

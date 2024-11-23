@@ -5,16 +5,16 @@
 #include <iostream>
 #include <algorithm>
 #include "Job.h"
-#include "RejectableData.h"
+#include "RejectableJobCollection.h"
 
-class Data
+class JobCollection
 {
 public:
     std::vector<Job> jobs;
 
-    Data(std::vector<std::vector<int>> data);
-    Data(int njobs, int p_max, float alpha);
-    Data(RejectableData rd);
+    JobCollection(std::vector<std::vector<int>> data);
+    JobCollection(int njobs, int p_max, float alpha);
+    JobCollection(RejectableJobCollection rd);
 
     int P() const;
     void display() const;
@@ -24,7 +24,7 @@ public:
 
     int cost(const std::vector<Job> &solution) const;
 
-    friend std::ostream &operator<<(std::ostream &os, const Data &d);
+    friend std::ostream &operator<<(std::ostream &os, const JobCollection &d);
 };
 
 #endif // DATA_H
