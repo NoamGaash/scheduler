@@ -1,10 +1,9 @@
-#pragma once
 #include <iostream>
 #include <algorithm>
 #include <vector>
 #include <functional>
-#include "../utils/data.cpp"
-#include "../utils/arrays.cpp"
+#include "../utils/data.h"
+#include "../utils/arrays.h"
 
 int dp_solution(JobCollection &data, bool verbose = false, std::function<void(int **, vector<Job>, int)> backtrack = nullptr)
 {

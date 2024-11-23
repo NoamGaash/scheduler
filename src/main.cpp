@@ -1,9 +1,9 @@
-#include "utils/readCSV.cpp"
-#include "utils/data.cpp"
+#include "utils/readCSV.h"
+#include "utils/data.h"
 #include "utils/operators.cpp"
 #include "utils/timing.cpp"
 #include "algo/naive_solution.cpp"
-#include "algo/dp_solution.cpp"
+#include "algo/dp_solution.h"
 #include "algo/dp_backtracking_solution.cpp"
 #include <vector>
 #include <numeric>
@@ -14,7 +14,7 @@ using namespace std;
 void process_example_file()
 {
     string filename = "input.csv";
-    Data d(readCSV(filename));
+    JobCollection d(readCSV(filename));
 
     cout << "Cost before algo: " << d.cost(d.jobs) << endl;
     d.sort_by_descending_due_to();
@@ -32,7 +32,7 @@ void process_example_file()
 void process_example_rejection_file()
 {
     string filename = "input_with_rejection.csv";
-    RejectableData d(readCSV(filename));
+    RejectableJobCollection d(readCSV(filename));
 
     cout << "Cost before algo: " << d.cost() << endl;
     d.sort_by_descending_due_to();
@@ -52,7 +52,7 @@ void process_generated_data()
     int njobs = 200;
     int p_max = 100;
     float alpha = 1;
-    Data d(njobs, p_max, alpha);
+    JobCollection d(njobs, p_max, alpha);
     int result = 0;
 
     cout << "Cost before algo: " << d.cost(d.jobs) << endl;

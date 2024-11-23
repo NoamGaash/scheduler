@@ -1,17 +1,13 @@
 cmake_minimum_required(VERSION 3.10)
-project(MyProject)
+
+# Project name
+project(Scheduler VERSION 1.0)
 
 # Set C++ standard
 set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED True)
 
-# Find Google Test
-find_package(GTest REQUIRED)
-
-# Collect all test files
-file(GLOB TEST_FILES tests/*.cpp)
-
-# Add executable for tests
-add_executable(test_exe ${TEST_FILES})
-
-# Link gtest to the test executable
-target_link_libraries(test_exe GTest::GTest GTest::Main pthread)
+# Add subdirectories for source and tests
+add_subdirectory(src)
+add_subdirectory(tests)
+enable_testing()

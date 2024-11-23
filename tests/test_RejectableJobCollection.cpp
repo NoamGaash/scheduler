@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include "../src/utils/model/RejectableJobCollection.cpp"
+#include "../src/utils/model/RejectableJobCollection.h"
 
 TEST(RejectableJobCollectionTest, ConstructorWithData) {
     std::vector<std::vector<int>> data = {

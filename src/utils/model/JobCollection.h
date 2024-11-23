@@ -1,6 +1,4 @@
-#ifndef DATA_H
-#define DATA_H
-
+#pragma once
 #include <vector>
 #include <iostream>
 #include <algorithm>
@@ -26,5 +24,3 @@ public:
 
     friend std::ostream &operator<<(std::ostream &os, const JobCollection &d);
 };
-
-#endif // DATA_H

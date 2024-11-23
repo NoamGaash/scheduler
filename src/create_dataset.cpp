@@ -1,8 +1,8 @@
-#include "utils/data.cpp"
-#include "utils/operators.cpp"
-#include "utils/timing.cpp"
-#include "utils/write_csv.cpp"
-#include "algo/naive_solution.cpp"
+#include "utils/data.h"
+#include "utils/operators.h"
+#include "utils/timing.h"
+#include "utils/write_csv.h"
+#include "algo/naive_solution.h"
 #include <fstream>
 #include <filesystem>
 
@@ -20,7 +20,7 @@ int main()
         string path = to_string(n) + "-" + to_string(pmax) + "-" + to_string(alpha) + "-" + to_string(i) + "/";
         if (!exists("./data/" + path + "output.txt"))
         {
-            Data d(n, pmax, alpha);
+            JobCollection d(n, pmax, alpha);
             write_csv(d, "./data/" + path + "input.csv");
             d.sort_by_descending_due_to();
             double time = time_measure([&d]()

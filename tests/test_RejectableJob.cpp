@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include "../src/utils/model/RejectableJob.cpp"
+#include "../src/utils/model/RejectableJob.h"
 
 TEST(RejectableJobTest, constructor) {
     RejectableJob rj(1, 2, 3, 4);

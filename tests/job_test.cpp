@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include "../src/utils/model/Job.cpp"
+#include "../src/utils/model/Job.h"
 
 TEST(JobTest, constractor) {
     Job j(1, 2, 3);

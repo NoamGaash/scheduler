@@ -1,8 +1,8 @@
 #include <iostream>
 #include <algorithm>
 #include <vector>
-#include "../utils/data.cpp"
-#include "dp_solution.cpp"
+#include "../utils/data.h"
+#include "dp_solution.h"
 
 using namespace std;
 
@@ -57,7 +57,7 @@ vector<int> *backtrack(int **f, vector<Job> &jobs, int P)
     return new vector<int>[2]{early_jobs, late_jobs};
 }
 
-int dp_backtrack_solution(Data &data, bool verbose = false)
+int dp_backtrack_solution(JobCollection &data, bool verbose = false)
 {
     return dp_solution(data, verbose, [](int **f, vector<Job> jobs, int P)
     {

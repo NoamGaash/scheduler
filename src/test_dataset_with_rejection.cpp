@@ -2,11 +2,11 @@
 #include <filesystem>
 #include <fstream>
 #include <iostream>
-#include "utils/data.cpp"
-#include "utils/readCSV.cpp"
-#include "algo/dp_solution.cpp"
-#include "utils/timing.cpp"
-#include "utils/stddev.cpp"
+#include "utils/data.h"
+#include "utils/readCSV.h"
+#include "algo/dp_solution.h"
+#include "utils/timing.h"
+#include "utils/stddev.h"
 #include <vector>
 #include <numeric>
 #include <cmath>

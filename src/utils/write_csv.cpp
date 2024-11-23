@@ -1,6 +1,5 @@
-#pragma once
 #include <fstream>
-#include "data.cpp"
+#include "data.h"
 #include <sys/stat.h>
 #include <vector>
 
@@ -20,7 +19,7 @@ void createDirIfNeeded(string filePath) {
 
 }
 
-void write_csv(const Data &data, const string &filename)
+void write_csv(const RejectableJobCollection &data, const string &filename)
 {
     createDirIfNeeded(filename);
     ofstream file(filename);

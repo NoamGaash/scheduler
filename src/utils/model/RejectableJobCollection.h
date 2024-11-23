@@ -1,6 +1,4 @@
-#ifndef REJECTABLE_DATA_H
-#define REJECTABLE_DATA_H
-
+#pragma once
 #include <vector>
 #include <iostream>
 #include <algorithm>
@@ -25,5 +23,3 @@ public:
 
     friend std::ostream &operator<<(std::ostream &os, const RejectableJobCollection &d);
 };
-
-#endif // REJECTABLE_DATA_H

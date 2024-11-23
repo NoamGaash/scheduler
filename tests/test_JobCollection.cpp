@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include "../src/utils/model/JobCollection.cpp"
+#include "../src/utils/model/JobCollection.h"
 
 TEST(JobCollectionTest, ConstructorFromData) {
     std::vector<std::vector<int>> data = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
