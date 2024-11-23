@@ -34,10 +34,10 @@ jobs:
     strategy:
       matrix:
         command:
-          - ./src/main
-          - ./src/test_dataset
-          - ./src/test_dataset_with_rejection datasets/data_rejection
-          - ./src/test_performance
+          - src/main
+          - src/test_dataset
+          - src/test_dataset_with_rejection datasets/data_rejection
+          - src/test_performance
     steps:
       - uses: actions/checkout@v3
 
@@ -55,5 +55,5 @@ jobs:
 
       - name: Run Specific Test
         run: |
-          cd build
-          ${{ matrix.command }}
+          
+          ./build/${{ matrix.command }}

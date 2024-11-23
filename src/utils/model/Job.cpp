@@ -1,4 +1,3 @@
-#pragma once
 #include "Job.h"
 #include <algorithm>
 using namespace std;

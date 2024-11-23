@@ -20,15 +20,15 @@ add_library(scheduler_lib
 target_include_directories(scheduler_lib PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 
 # Add the main executable
-add_executable(main_exec main.cpp)
-target_link_libraries(main_exec PRIVATE scheduler_lib)
+add_executable(main main.cpp)
+target_link_libraries(main PRIVATE scheduler_lib)
 
 # Add other executables for testing or performance
-add_executable(test_dataset_exec test_dataset.cpp)
-target_link_libraries(test_dataset_exec PRIVATE scheduler_lib)
+add_executable(test_dataset test_dataset.cpp)
+target_link_libraries(test_dataset PRIVATE scheduler_lib)
 
-add_executable(test_dataset_with_rejection_exec test_dataset_with_rejection.cpp)
-target_link_libraries(test_dataset_with_rejection_exec PRIVATE scheduler_lib)
+add_executable(test_dataset_with_rejection test_dataset_with_rejection.cpp)
+target_link_libraries(test_dataset_with_rejection PRIVATE scheduler_lib)
 
-add_executable(test_performance_exec test_performance.cpp)
-target_link_libraries(test_performance_exec PRIVATE scheduler_lib)
+add_executable(test_performance test_performance.cpp)
+target_link_libraries(test_performance PRIVATE scheduler_lib)
