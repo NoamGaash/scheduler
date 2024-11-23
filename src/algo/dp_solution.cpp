@@ -2,6 +2,7 @@
 #include <iostream>
 #include <algorithm>
 #include <vector>
+#include <functional>
 #include "../utils/data.cpp"
 #include "../utils/arrays.cpp"
 

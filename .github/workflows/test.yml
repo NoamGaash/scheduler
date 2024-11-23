@@ -8,14 +8,14 @@ jobs:
       steps:
           - uses: actions/checkout@v2
           - name: run main script
-            run: g++ main.cpp -o main; ./main
+            run: g++ src/main.cpp -o /tmp/main; /tmp/main
     test_dataset:
       timeout-minutes: 5
       runs-on: ubuntu-latest
       steps:
           - uses: actions/checkout@v2
           - name: run test script
-            run: g++ test_dataset.cpp -o test_dataset; ./test_dataset
+            run: g++ src/test_dataset.cpp -o /tmp/test_dataset && /tmp/test_dataset
 
     test_baruch_dataset:
       timeout-minutes: 5
@@ -23,7 +23,7 @@ jobs:
       steps:
           - uses: actions/checkout@v2
           - name: run test script on dataset from Baruch
-            run: g++ test_dataset.cpp -o test_dataset; ./test_dataset parse_baruch_dataset/data
+            run: g++ src/test_dataset.cpp -o /tmp/test_dataset && /tmp/test_dataset datasets/parse_baruch_dataset/data
 
     test_performance:
       timeout-minutes: 5
@@ -31,7 +31,7 @@ jobs:
       steps:
           - uses: actions/checkout@v2
           - name: run performance script
-            run: g++ test_performance.cpp -o test_performance; ./test_performance
+            run: g++ src/test_performance.cpp -o /tmp/test_performance && /tmp/test_performance
 
     test_rejection:
       timeout-minutes: 5
@@ -39,4 +39,4 @@ jobs:
       steps:
           - uses: actions/checkout@v2
           - name: test with rejection
-            run: g++ -g test_dataset_with_rejection.cpp -o test_dataset_with_rejection; ./test_dataset_with_rejection data_rejection
+            run: g++ -g src/test_dataset_with_rejection.cpp -o /tmp/test_dataset_with_rejection && /tmp/test_dataset_with_rejection datasets/data_rejection

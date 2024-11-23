@@ -18,7 +18,7 @@ int main(int argc, char const *argv[])
 {
     if(argc < 2)
     {
-        argv[1] = "data";
+        argv[1] = "datasets/data";
         argc = 2;
     }
     const std::filesystem::path data{argv[1]};
