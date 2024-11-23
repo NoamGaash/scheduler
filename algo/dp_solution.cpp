@@ -1,10 +1,11 @@
+#pragma once
 #include <iostream>
 #include <algorithm>
 #include <vector>
 #include "../utils/data.cpp"
 #include "../utils/arrays.cpp"
 
-int dp_solution(Data &data, bool verbose = false)
+int dp_solution(Data &data, bool verbose = false, std::function<void(int **, vector<Job>, int)> backtrack = nullptr)
 {
     data.sort_by_ascending_due_to();
     int n = data.jobs.size();
@@ -38,6 +39,10 @@ int dp_solution(Data &data, bool verbose = false)
     }
 
     const auto result = f[n][P];
+    if(backtrack != nullptr)
+    {
+        backtrack(f, data.jobs, P);
+    }
     delete_array(f, dp_rows);
     return result;
 }
