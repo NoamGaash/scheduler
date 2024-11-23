@@ -16,6 +16,8 @@ public:
 
     virtual int cost(int start) const;
     virtual void display() const;
+
+    friend ostream &operator<<(ostream &os, const Job &job);
 };
 
 #endif // JOB_H
