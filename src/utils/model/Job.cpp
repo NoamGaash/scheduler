@@ -12,5 +12,11 @@ int Job::cost(int start) const
 
 void Job::display() const
 {
-    cout << "(id=" << id << " p=" << processing_time << ", d=" << due_to << ")";
+    cout << *this;
+}
+
+ostream &operator<<(ostream &os, const Job &job)
+{
+    os << "(id=" << job.id << " p=" << job.processing_time << ", d=" << job.due_to << ")";
+    return os;
 }

@@ -1,5 +1,5 @@
 #include <vector>
-#include "data.cpp"
+#include "data.h"
 
 using namespace std;
 

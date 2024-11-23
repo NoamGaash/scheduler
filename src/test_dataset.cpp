@@ -2,9 +2,9 @@
 #include <filesystem>
 #include <fstream>
 #include <iostream>
-#include "utils/data.cpp"
-#include "utils/readCSV.cpp"
-#include "algo/dp_solution.cpp"
+#include "utils/data.h"
+#include "utils/readCSV.h"
+#include "algo/dp_solution.h"
 #include "utils/timing.cpp"
 #include "utils/stddev.cpp"
 #include <vector>
@@ -18,7 +18,7 @@ int main(int argc, char const *argv[])
 {
     if(argc < 2)
     {
-        argv[1] = "data_rejection";
+        argv[1] = "datasets/data";
         argc = 2;
     }
     const std::filesystem::path data{argv[1]};
@@ -28,7 +28,7 @@ int main(int argc, char const *argv[])
     {
         string input = dir_entry.path().string() + "/input.csv";
         string output = dir_entry.path().string() + "/output.txt";
-        auto d = RejectableData(readCSV(input));
+        auto d = JobCollection(readCSV(input));
         int result = 0;
         auto time = time_measure([&d, &result]()
                                  { result = dp_solution(d); });

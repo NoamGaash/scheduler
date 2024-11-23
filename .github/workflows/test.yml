@@ -1,42 +1,59 @@
-name: test performance on github actions
+name: Test Performance on GitHub Actions
+
 on: [push]
 
 jobs:
-    test_main:
-      timeout-minutes: 5
-      runs-on: ubuntu-latest
-      steps:
-          - uses: actions/checkout@v2
-          - name: run main script
-            run: g++ main.cpp -o main; ./main
-    test_dataset:
-      timeout-minutes: 5
-      runs-on: ubuntu-latest
-      steps:
-          - uses: actions/checkout@v2
-          - name: run test script
-            run: g++ test_dataset.cpp -o test_dataset; ./test_dataset
+  # General build and test job
+  build_and_test:
+    timeout-minutes: 10
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
 
-    test_baruch_dataset:
-      timeout-minutes: 5
-      runs-on: ubuntu-latest
-      steps:
-          - uses: actions/checkout@v2
-          - name: run test script on dataset from Baruch
-            run: g++ test_dataset.cpp -o test_dataset; ./test_dataset parse_baruch_dataset/data
+      - name: Install Dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y cmake g++ libgtest-dev
 
-    test_performance:
-      timeout-minutes: 5
-      runs-on: ubuntu-latest
-      steps:
-          - uses: actions/checkout@v2
-          - name: run performance script
-            run: g++ test_performance.cpp -o test_performance; ./test_performance
+      - name: Configure and Build
+        run: |
+          mkdir -p build
+          cd build
+          cmake ..
+          cmake --build . -- -j$(nproc)
 
-    test_rejection:
-      timeout-minutes: 5
-      runs-on: ubuntu-latest
-      steps:
-          - uses: actions/checkout@v2
-          - name: test with rejection
-            run: g++ -g test_dataset_with_rejection.cpp -o test_dataset_with_rejection; ./test_dataset_with_rejection data_rejection
+      - name: Run All Tests with CTest
+        run: |
+          cd build
+          ctest -V
+
+  # Run specific tests or executables
+  test_job_template:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    strategy:
+      matrix:
+        command:
+          - src/main
+          - src/test_dataset
+          - src/test_dataset_with_rejection datasets/data_rejection
+          - src/test_performance
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install Dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y cmake g++ libgtest-dev
+
+      - name: Configure and Build
+        run: |
+          mkdir -p build
+          cd build
+          cmake ..
+          cmake --build . -- -j$(nproc)
+
+      - name: Run Specific Test
+        run: |
+          
+          ./build/${{ matrix.command }}

@@ -2,10 +2,10 @@
 #include <vector>
 #include <numeric>
 #include <functional>
-#include "utils/data.cpp"
-#include "utils/timing.cpp"
-#include "utils/stddev.cpp"
-#include "algo/dp_solution.cpp"
+#include "utils/data.h"
+#include "utils/timing.h"
+#include "utils/stddev.h"
+#include "algo/dp_solution.h"
 
 int main()
 {
@@ -24,7 +24,7 @@ int main()
                     vector<double> times;
                     for (int instance = 0; instance < 25; instance++)
                     {
-                        Data d(n, p_max, alpha);
+                        JobCollection d(n, p_max, alpha);
                         double time = time_measure([&d]()
                                                     { dp_solution(d); });
                         times.push_back(time);
@@ -49,14 +49,14 @@ int main()
                         vector<double> times;
                         for (int instance = 0; instance < 25; instance++)
                         {
-                            RejectableData d(n, p_max, alpha, beta);
+                            RejectableJobCollection d(n, p_max, alpha, beta);
                             int result;
                             double time = time_measure([&d, &result]()
                                                         { result = dp_solution(d); });
                             times.push_back(time);
                             
                             // make sure the result is smaller than the result without rejection
-                            Data no_rejection(d);
+                            JobCollection no_rejection(d);
                             if(!result) {
                                 cout << "Error: result is 0" << endl;
                             }
